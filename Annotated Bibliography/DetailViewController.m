@@ -39,6 +39,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self configureView];
 }
 
@@ -47,5 +48,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)setEditing:(BOOL)flag animated:(BOOL)animated
+{
+    [super setEditing:flag animated:animated];
+    if (flag == YES){
+        // Change views to edit mode.
+        NSLog(@"Change to edit mode.");
+    }
+    else {
+        // Save the changes if needed and change the views to noneditable.
+        NSLog(@"Change to view mode.");
+    }
+}
+
 
 @end

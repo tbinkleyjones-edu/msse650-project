@@ -25,28 +25,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender
-{
-    // the template's default behavior creates a new Entry and adds to the front of the list.
-//    [self.entries createEntry:[[Entry alloc] init]];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-
-    // instead, an edit view should be displayed allowing the user to edit a new Entry
-    // once the user presses done on the new entry, then the Entry should be added.
-    // if the user cancels, then do not add.
-
 }
 
 #pragma mark - Table View
@@ -68,6 +52,12 @@
     Entry *object = [[self.entries retrieveAllEntries] objectAtIndex:indexPath.row];
     cell.textLabel.text = [object sourceTitle];
     cell.detailTextLabel.text = [object authors];
+
+    //NSString *path = [[NSBundle mainBundle] pathForResource:@"image-1" ofType:@"png"];
+    UIImage *theImage = [UIImage imageNamed:@"image-1"];
+
+    cell.imageView.image = theImage;
+
     return cell;
 }
 
