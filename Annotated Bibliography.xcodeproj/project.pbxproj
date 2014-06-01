@@ -67,6 +67,7 @@
 		221BD2E51932471E00A1486D /* EntrySvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcCache.m; sourceTree = "<group>"; };
 		221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcCacheTests.m; sourceTree = "<group>"; };
 		221BD2ED1932A76D00A1486D /* image-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-1.png"; sourceTree = "<group>"; };
+		22F8FF8E193BD59F00636EA7 /* EntryOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryOperationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +138,7 @@
 				221BD2C019323D8600A1486D /* DetailViewController.m */,
 				221BD2C219323D8600A1486D /* Images.xcassets */,
 				221BD2AE19323D8600A1486D /* Supporting Files */,
+				22F8FF8E193BD59F00636EA7 /* EntryOperationDelegate.h */,
 			);
 			path = "Annotated Bibliography";
 			sourceTree = "<group>";

@@ -100,7 +100,30 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Entry *object = [[self.entries retrieveAllEntries] objectAtIndex:indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setDelegate:self];
+
+    } else if ([[segue identifier] isEqualToString:@"addItem"]) {
+        Entry *object = [[Entry alloc] init];
+        [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setDelegate:self];
+        [[segue destinationViewController] setEditing:YES animated:NO];
     }
+}
+
+- (void) updateEntry:(Entry *)entry {
+    NSLog(@"deleting entry %@", entry);
+    if ([[self.entries retrieveAllEntries] containsObject:entry]) {
+        [self.entries updateEntry:entry];
+    } else {
+        [self.entries createEntry:entry];
+    }
+    [self.tableView reloadData];
+}
+
+- (void) deleteEntry:(Entry *)entry {
+    NSLog(@"deleting entry %@", entry);
+    [self.entries deleteEntry:entry];
+    [self.tableView reloadData];
 }
 
 @end

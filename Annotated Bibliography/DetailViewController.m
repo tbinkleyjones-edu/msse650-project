@@ -46,7 +46,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self configureView];
 }
 
@@ -56,18 +55,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)setEditing:(BOOL)flag animated:(BOOL)animated
-//{
-//    [super setEditing:flag animated:animated];
-//    if (flag == YES){
-//        // Change views to edit mode.
-//        NSLog(@"Change to edit mode.");
-//    }
-//    else {
-//        // Save the changes if needed and change the views to noneditable.
-//        NSLog(@"Change to view mode.");
-//    }
-//}
+- (void)setEditing:(BOOL)flag animated:(BOOL)animated
+{
+    [super setEditing:flag animated:animated];
+    if (flag == YES){
+        // Change views to edit mode.
+        NSLog(@"Change to edit mode");
+    }
+    else {
+        // Save the changes if needed and change the views to noneditable.
+        NSLog(@"Change to view mode");
+
+        [self.delegate updateEntry:self.detailItem];
+    }
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -87,6 +89,28 @@
         }
     }
     return result;
+}
+
+- (IBAction)deleteEntry:(id)sender {
+    // called when the delete button on the form is clicked. Display an action sheet
+    // with cancel and delete options
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete"
+                                                    otherButtonTitles:nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"The %@ button was tapped. (index %ld)", [actionSheet buttonTitleAtIndex:buttonIndex], (long)buttonIndex);
+
+    // send a delete message to the delegate, and then navigate back
+    if (buttonIndex == 0) {
+        [self.delegate deleteEntry:self.detailItem];
+        [self.navigationController popViewControllerAnimated:TRUE];
+    }
 }
 
 @end

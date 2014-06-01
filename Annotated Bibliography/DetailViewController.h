@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "EntryOperationDelegate.h"
 
-@interface DetailViewController : UITableViewController <UITextViewDelegate>
+@interface DetailViewController : UITableViewController <UITextViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) id detailItem;
+@property (weak) id <EntryOperationDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *sourceTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mediaTitleLabel;
@@ -18,4 +20,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *abstractTextView;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 
+- (IBAction)deleteEntry:(id)sender;
 @end
