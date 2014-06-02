@@ -34,9 +34,9 @@
 
     if (self.detailItem) {
         Entry *entry = self.detailItem;
-        self.sourceTitleLabel.text = entry.sourceTitle;
-        self.mediaTitleLabel.text = entry.mediaTitle;
-        self.authorsLabel.text = entry.authors;
+        self.sourceTitleTextField.text = entry.sourceTitle;
+        self.mediaTitleTextField.text = entry.mediaTitle;
+        self.authorsTextField.text = entry.authors;
         self.abstractTextView.text = entry.abstract;
         self.notesTextView.text = entry.notes;
     }
@@ -46,6 +46,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self configureView];
 }
 
@@ -55,16 +56,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return NO;
+}
+
 - (void)setEditing:(BOOL)flag animated:(BOOL)animated
 {
     [super setEditing:flag animated:animated];
     if (flag == YES){
         // Change views to edit mode.
         NSLog(@"Change to edit mode");
+        self.deleteButton.hidden = NO;
+        self.deleteButton.enabled = YES;
+
+        self.sourceTitleTextField.enabled = YES;
+        self.mediaTitleTextField.enabled = YES;
+        self.authorsTextField.enabled = YES;
+        self.abstractTextView.editable = YES;
+        self.notesTextView.editable = YES;
+
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelEdit)];
+
     }
     else {
         // Save the changes if needed and change the views to noneditable.
         NSLog(@"Change to view mode");
+
+        self.navigationItem.leftBarButtonItem = nil;
+
+        self.sourceTitleTextField.enabled = NO;
+        self.mediaTitleTextField.enabled = NO;
+        self.authorsTextField.enabled = NO;
+        self.abstractTextView.editable = NO;
+        self.notesTextView.editable = NO;
+
+        Entry *entry = self.detailItem;
+        entry.sourceTitle = self.sourceTitleTextField.text;
+        entry.mediaTitle = self.mediaTitleTextField.text;
+        entry.authors = self.authorsTextField.text;
+        entry.abstract = self.abstractTextView.text;
+        entry.notes = self.notesTextView.text;
 
         [self.delegate updateEntry:self.detailItem];
     }
@@ -89,6 +122,13 @@
         }
     }
     return result;
+}
+
+- (void)cancelEdit {
+    // restore field values to what is already in the detail item
+    [self configureView];
+    // resume view mode
+    [self setEditing:NO animated:YES];
 }
 
 - (IBAction)deleteEntry:(id)sender {
