@@ -10,14 +10,22 @@
 
 #import "DetailViewController.h"
 
-#import "Entry.h"
+#import "EntrySvcArchive.h"
+
+@interface MasterViewController()
+
+@property (strong, nonatomic) EntrySvcArchive *entries;
+
+@end
 
 @implementation MasterViewController
+
+EntrySvcArchive *entries;
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.entries = [[EntrySvcCache alloc] initWithSampleData];
+    self.entries = [[EntrySvcArchive alloc] init];
 }
 
 - (void)viewDidLoad
@@ -116,7 +124,7 @@
 }
 
 - (void) updateEntry:(Entry *)entry {
-    NSLog(@"deleting entry %@", entry);
+    NSLog(@"updating entry %@", entry);
     if ([[self.entries retrieveAllEntries] containsObject:entry]) {
         [self.entries updateEntry:entry];
     } else {

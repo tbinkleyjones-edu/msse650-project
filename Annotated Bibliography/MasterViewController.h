@@ -7,12 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EntrySvcCache.h"
 #import "EntryOperationDelegate.h"
 
 
 @interface MasterViewController : UITableViewController <EntryOperationDelegate>
-
-@property (strong, nonatomic) EntrySvcCache *entries;
 
 @end
