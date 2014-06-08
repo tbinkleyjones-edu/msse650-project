@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22139DAB1944C9880050DD8E /* EntrySvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 22139DAA1944C9880050DD8E /* EntrySvcArchive.m */; };
+		22139DAD1944CA9D0050DD8E /* EntrySvcArchiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */; };
 		221BD2A819323D8600A1486D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2A719323D8600A1486D /* Foundation.framework */; };
 		221BD2AA19323D8600A1486D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2A919323D8600A1486D /* CoreGraphics.framework */; };
 		221BD2AC19323D8600A1486D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2AB19323D8600A1486D /* UIKit.framework */; };
@@ -39,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22139DA91944C9880050DD8E /* EntrySvcArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySvcArchive.h; sourceTree = "<group>"; };
+		22139DAA1944C9880050DD8E /* EntrySvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcArchive.m; sourceTree = "<group>"; };
+		22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcArchiveTests.m; sourceTree = "<group>"; };
 		221BD2A419323D8600A1486D /* Annotated Bibliography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annotated Bibliography.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		221BD2A719323D8600A1486D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		221BD2A919323D8600A1486D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -181,6 +186,8 @@
 				221BD2E3193246A800A1486D /* EntrySvc.h */,
 				221BD2E41932471E00A1486D /* EntrySvcCache.h */,
 				221BD2E51932471E00A1486D /* EntrySvcCache.m */,
+				22139DA91944C9880050DD8E /* EntrySvcArchive.h */,
+				22139DAA1944C9880050DD8E /* EntrySvcArchive.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */,
+				22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 				221BD2E21932416E00A1486D /* Entry.m in Sources */,
 				221BD2BE19323D8600A1486D /* MasterViewController.m in Sources */,
 				221BD2B419323D8600A1486D /* main.m in Sources */,
+				22139DAB1944C9880050DD8E /* EntrySvcArchive.m in Sources */,
 				221BD2E61932471E00A1486D /* EntrySvcCache.m in Sources */,
 				221BD2C119323D8600A1486D /* DetailViewController.m in Sources */,
 			);
@@ -306,6 +315,7 @@
 			files = (
 				221BD2E9193249B300A1486D /* EntrySvcCacheTests.m in Sources */,
 				221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */,
+				22139DAD1944CA9D0050DD8E /* EntrySvcArchiveTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
