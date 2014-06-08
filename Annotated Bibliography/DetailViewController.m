@@ -36,7 +36,9 @@
         Entry *entry = self.detailItem;
         self.sourceTitleTextField.text = entry.sourceTitle;
         self.mediaTitleTextField.text = entry.mediaTitle;
-        self.authorsTextField.text = entry.authors;
+        if (entry.authors.count > 0) {
+            self.authorsTextField.text = [entry.authors objectAtIndex:0];
+        }
         self.abstractTextView.text = entry.abstract;
         self.notesTextView.text = entry.notes;
     }
@@ -95,7 +97,11 @@
         Entry *entry = self.detailItem;
         entry.sourceTitle = self.sourceTitleTextField.text;
         entry.mediaTitle = self.mediaTitleTextField.text;
-        entry.authors = self.authorsTextField.text;
+        if (entry.authors.count > 0) {
+            [entry.authors replaceObjectAtIndex:0 withObject:self.authorsTextField.text];
+        } else {
+            [entry.authors addObject:self.authorsTextField.text];
+        }
         entry.abstract = self.abstractTextView.text;
         entry.notes = self.notesTextView.text;
 

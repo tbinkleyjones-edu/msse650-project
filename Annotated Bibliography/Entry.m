@@ -22,6 +22,14 @@ static NSString *const DOI = @"doi";
 
 @implementation Entry
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        self.authors = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (NSString *) description {
     return [NSString stringWithFormat: @"%@ %@ %@", _sourceTitle, _authors, _mediaTitle];
 }

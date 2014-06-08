@@ -27,13 +27,18 @@
     XCTAssertEqual([service retrieveAllEntries].count, initialCount + 1);
 
     entry.details = @"this is a cool paper";
+    [entry.authors addObject: @"author 0"];
+    NSLog(@"saving author: %@", [entry.authors objectAtIndex:0]);
+
     [service updateEntry:entry];
     XCTAssertEqual([service retrieveAllEntries].count, initialCount + 1);
 
     NSInteger indexOfEntry = [[service retrieveAllEntries] indexOfObject:entry];
-
     Entry *updatedEntry = [[service retrieveAllEntries] objectAtIndex:indexOfEntry];
     XCTAssertEqual(updatedEntry.details, @"this is a cool paper");
+
+    NSLog(@"found author: %@", [updatedEntry.authors objectAtIndex:0]);
+    XCTAssertEqual([updatedEntry.authors objectAtIndex:0], @"author 0");
 
     [service deleteEntry:entry];
     XCTAssertEqual([service retrieveAllEntries].count, initialCount);
