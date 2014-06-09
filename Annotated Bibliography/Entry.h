@@ -27,7 +27,7 @@
 @property (nonatomic, strong) NSString *typeOfMedia;
 @property (nonatomic, strong) NSString *mediaTitle;
 @property (nonatomic, strong) NSString *sourceTitle;
-@property (nonatomic, strong) NSString *authors;
+@property (nonatomic, strong) NSMutableArray *authors;
 @property (nonatomic, strong) NSString *details;
 @property (nonatomic, strong) NSString *keywords;
 @property (nonatomic, strong) NSString *abstract;

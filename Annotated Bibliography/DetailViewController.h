@@ -13,10 +13,10 @@
 
 @property (strong, nonatomic) id detailItem;
 @property (weak) id <EntryOperationDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITableView *staticTableView;
 
 @property (weak, nonatomic) IBOutlet UITextField *sourceTitleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mediaTitleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *authorsTextField;
 @property (weak, nonatomic) IBOutlet UITextView *abstractTextView;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;

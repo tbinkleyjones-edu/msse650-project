@@ -15,18 +15,6 @@
 
 @implementation EntrySvcCacheTests
 
-//- (void)setUp
-//{
-//    [super setUp];
-//    // Put setup code here. This method is called before the invocation of each test method in the class.
-//}
-//
-//- (void)tearDown
-//{
-//    // Put teardown code here. This method is called after the invocation of each test method in the class.
-//    [super tearDown];
-//}
-
 - (void)testAddUpdateAndRemoveEntry
 {
     EntrySvcCache *service = [[EntrySvcCache alloc] init];
@@ -39,10 +27,17 @@
     XCTAssertEqual([service retrieveAllEntries].count, 1);
 
     entry.details = @"this is a cool paper";
+    [entry.authors addObject:@"author 0"];
+    NSLog(@"saving author: %@", [entry.authors objectAtIndex:0]);
+
     [service updateEntry:entry];
     XCTAssertEqual([service retrieveAllEntries].count, 1);
+
     Entry *updatedEntry = [[service retrieveAllEntries] objectAtIndex:0];
     XCTAssertEqual(updatedEntry.details, @"this is a cool paper");
+
+    NSLog(@"found author: %@", [updatedEntry.authors objectAtIndex:0]);
+    XCTAssertEqual([updatedEntry.authors objectAtIndex:0], @"author 0");
 
     [service deleteEntry:entry];
     XCTAssertEqual([service retrieveAllEntries].count, 0);

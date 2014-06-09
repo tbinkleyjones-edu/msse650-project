@@ -60,7 +60,11 @@ EntrySvcArchive *entries;
 
     Entry *object = [[self.entries retrieveAllEntries] objectAtIndex:indexPath.row];
     cell.textLabel.text = [object sourceTitle];
-    cell.detailTextLabel.text = [object authors];
+    if (object.authors.count > 0) {
+        cell.detailTextLabel.text = [object.authors objectAtIndex:0];
+    } else {
+        cell.detailTextLabel.text = @"";
+    }
 
     //NSString *path = [[NSBundle mainBundle] pathForResource:@"image-1" ofType:@"png"];
     UIImage *theImage = [UIImage imageNamed:@"image-1"];
