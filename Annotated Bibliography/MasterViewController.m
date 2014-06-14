@@ -10,22 +10,22 @@
 
 #import "DetailViewController.h"
 
-#import "EntrySvcArchive.h"
+#import "EntrySvcSqlite.h"
 
 @interface MasterViewController()
 
-@property (strong, nonatomic) EntrySvcArchive *entries;
+@property (strong, nonatomic) EntrySvcSqlite *entries;
 
 @end
 
 @implementation MasterViewController
 
-EntrySvcArchive *entries;
+EntrySvcSqlite *entries;
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.entries = [[EntrySvcArchive alloc] init];
+    self.entries = [[EntrySvcSqlite alloc] init];
 }
 
 - (void)viewDidLoad
@@ -129,7 +129,7 @@ EntrySvcArchive *entries;
 
 - (void) updateEntry:(Entry *)entry {
     NSLog(@"updating entry %@", entry);
-    if ([[self.entries retrieveAllEntries] containsObject:entry]) {
+    if (entry.id != 0) {
         [self.entries updateEntry:entry];
     } else {
         [self.entries createEntry:entry];

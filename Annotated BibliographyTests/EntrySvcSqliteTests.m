@@ -21,12 +21,15 @@
 
     Entry *entry = [[Entry alloc] init];
     entry.mediaTitle = @"Journal of Cool Stuff";
+    [entry.authors addObject: @"author 0"];
 
-    [service createEntry:entry];
+    entry = [service createEntry:entry];
     XCTAssertEqual([service retrieveAllEntries].count, initialCount + 1);
+    NSLog(@"New entry id: %i", entry.id);
+    XCTAssertNotEqual(entry.id, 0);
 
     entry.details = @"this is a cool paper";
-    [entry.authors addObject: @"author 0"];
+    [entry.authors addObject: @"author 1"];
     NSLog(@"saving author: %@", [entry.authors objectAtIndex:0]);
 
     [service updateEntry:entry];
@@ -43,11 +46,11 @@
 
     XCTAssertTrue([updatedEntry.details isEqualToString:@"this is a cool paper"], "Update failed, details do not match");
 
-    NSLog(@"found author: %@", [updatedEntry.authors objectAtIndex:0]);
-    XCTAssertTrue([[updatedEntry.authors objectAtIndex:0] isEqualToString:@"author 0"], "Update failed, author names do not match");
-
-    [service deleteEntry:entry];
-    XCTAssertEqual([service retrieveAllEntries].count, initialCount);
+    NSLog(@"found author: %@", [updatedEntry.authors objectAtIndex:1]);
+    XCTAssertTrue([[updatedEntry.authors objectAtIndex:1] isEqualToString:@"author 1"], "Update failed, author names do not match");
+//
+//    [service deleteEntry:entry];
+//    XCTAssertEqual([service retrieveAllEntries].count, initialCount);
 }
 
 @end

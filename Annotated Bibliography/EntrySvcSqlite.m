@@ -125,7 +125,6 @@ sqlite3 *database = nil;
 
     if (sqlite3_prepare_v2(database, [updateEntrySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
         if (sqlite3_step(statement) == SQLITE_DONE) {
-            entry.id = (int)sqlite3_last_insert_rowid(database);
             NSLog(@"*** Entry updated");
         } else {
             NSLog(@"*** Entry NOT updated");
