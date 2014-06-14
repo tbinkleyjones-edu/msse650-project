@@ -30,6 +30,7 @@
 		221BD2EE1932A76D00A1486D /* image-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2ED1932A76D00A1486D /* image-1.png */; };
 		2251B774194CB0880054854F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251B773194CB0880054854F /* libsqlite3.dylib */; };
 		2251B777194CB0AE0054854F /* EntrySvcSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251B776194CB0AE0054854F /* EntrySvcSqlite.m */; };
+		2251B779194CBC550054854F /* EntrySvcSqliteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251B778194CBC550054854F /* EntrySvcSqliteTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		2251B773194CB0880054854F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2251B775194CB0AE0054854F /* EntrySvcSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySvcSqlite.h; sourceTree = "<group>"; };
 		2251B776194CB0AE0054854F /* EntrySvcSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcSqlite.m; sourceTree = "<group>"; };
+		2251B778194CBC550054854F /* EntrySvcSqliteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcSqliteTests.m; sourceTree = "<group>"; };
 		22F8FF8E193BD59F00636EA7 /* EntryOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryOperationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +208,7 @@
 			children = (
 				221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */,
 				22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */,
+				2251B778194CBC550054854F /* EntrySvcSqliteTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				221BD2E9193249B300A1486D /* EntrySvcCacheTests.m in Sources */,
 				221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */,
 				22139DAD1944CA9D0050DD8E /* EntrySvcArchiveTests.m in Sources */,
+				2251B779194CBC550054854F /* EntrySvcSqliteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
