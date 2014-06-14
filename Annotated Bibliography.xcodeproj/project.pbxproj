@@ -28,6 +28,9 @@
 		221BD2E61932471E00A1486D /* EntrySvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2E51932471E00A1486D /* EntrySvcCache.m */; };
 		221BD2E9193249B300A1486D /* EntrySvcCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */; };
 		221BD2EE1932A76D00A1486D /* image-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2ED1932A76D00A1486D /* image-1.png */; };
+		2251B774194CB0880054854F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251B773194CB0880054854F /* libsqlite3.dylib */; };
+		2251B777194CB0AE0054854F /* EntrySvcSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251B776194CB0AE0054854F /* EntrySvcSqlite.m */; };
+		2251B779194CBC550054854F /* EntrySvcSqliteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251B778194CBC550054854F /* EntrySvcSqliteTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,10 @@
 		221BD2E51932471E00A1486D /* EntrySvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcCache.m; sourceTree = "<group>"; };
 		221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcCacheTests.m; sourceTree = "<group>"; };
 		221BD2ED1932A76D00A1486D /* image-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-1.png"; sourceTree = "<group>"; };
+		2251B773194CB0880054854F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		2251B775194CB0AE0054854F /* EntrySvcSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySvcSqlite.h; sourceTree = "<group>"; };
+		2251B776194CB0AE0054854F /* EntrySvcSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcSqlite.m; sourceTree = "<group>"; };
+		2251B778194CBC550054854F /* EntrySvcSqliteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcSqliteTests.m; sourceTree = "<group>"; };
 		22F8FF8E193BD59F00636EA7 /* EntryOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryOperationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2251B774194CB0880054854F /* libsqlite3.dylib in Frameworks */,
 				221BD2AA19323D8600A1486D /* CoreGraphics.framework in Frameworks */,
 				221BD2AC19323D8600A1486D /* UIKit.framework in Frameworks */,
 				221BD2A819323D8600A1486D /* Foundation.framework in Frameworks */,
@@ -121,6 +129,7 @@
 		221BD2A619323D8600A1486D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2251B773194CB0880054854F /* libsqlite3.dylib */,
 				221BD2A719323D8600A1486D /* Foundation.framework */,
 				221BD2A919323D8600A1486D /* CoreGraphics.framework */,
 				221BD2AB19323D8600A1486D /* UIKit.framework */,
@@ -188,6 +197,8 @@
 				221BD2E51932471E00A1486D /* EntrySvcCache.m */,
 				22139DA91944C9880050DD8E /* EntrySvcArchive.h */,
 				22139DAA1944C9880050DD8E /* EntrySvcArchive.m */,
+				2251B775194CB0AE0054854F /* EntrySvcSqlite.h */,
+				2251B776194CB0AE0054854F /* EntrySvcSqlite.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -197,6 +208,7 @@
 			children = (
 				221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */,
 				22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */,
+				2251B778194CBC550054854F /* EntrySvcSqliteTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -302,6 +314,7 @@
 				221BD2B819323D8600A1486D /* AppDelegate.m in Sources */,
 				221BD2E21932416E00A1486D /* Entry.m in Sources */,
 				221BD2BE19323D8600A1486D /* MasterViewController.m in Sources */,
+				2251B777194CB0AE0054854F /* EntrySvcSqlite.m in Sources */,
 				221BD2B419323D8600A1486D /* main.m in Sources */,
 				22139DAB1944C9880050DD8E /* EntrySvcArchive.m in Sources */,
 				221BD2E61932471E00A1486D /* EntrySvcCache.m in Sources */,
@@ -316,6 +329,7 @@
 				221BD2E9193249B300A1486D /* EntrySvcCacheTests.m in Sources */,
 				221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */,
 				22139DAD1944CA9D0050DD8E /* EntrySvcArchiveTests.m in Sources */,
+				2251B779194CBC550054854F /* EntrySvcSqliteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

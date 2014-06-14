@@ -24,6 +24,7 @@
  •	DOI
  */
 
+@property (nonatomic) NSInteger id;
 @property (nonatomic, strong) NSString *typeOfMedia;
 @property (nonatomic, strong) NSString *mediaTitle;
 @property (nonatomic, strong) NSString *sourceTitle;

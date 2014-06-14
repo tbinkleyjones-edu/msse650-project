@@ -43,7 +43,7 @@ NSMutableArray *entries = nil;
     return entry;
 }
 
-- (NSMutableArray *) retrieveAllEntries {
+- (NSArray *) retrieveAllEntries {
     return entries;
 }
 
