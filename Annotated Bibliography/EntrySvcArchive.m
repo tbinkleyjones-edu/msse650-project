@@ -46,7 +46,7 @@ NSMutableArray *entries;
     return entry;
 }
 
-- (NSMutableArray *)retrieveAllEntries {
+- (NSArray *)retrieveAllEntries {
     return entries;
 }
 

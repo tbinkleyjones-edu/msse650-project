@@ -12,7 +12,7 @@
 @protocol EntrySvc <NSObject>
 
 - (Entry *) createEntry: (Entry *) entry;
-- (NSMutableArray *) retrieveAllEntries;
+- (NSArray *) retrieveAllEntries;
 - (Entry *) updateEntry: (Entry *) entry;
 - (Entry *) deleteEntry: (Entry *) entry;
 
