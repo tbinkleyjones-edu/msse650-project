@@ -48,9 +48,9 @@
 
     NSLog(@"found author: %@", [updatedEntry.authors objectAtIndex:1]);
     XCTAssertTrue([[updatedEntry.authors objectAtIndex:1] isEqualToString:@"author 1"], "Update failed, author names do not match");
-//
-//    [service deleteEntry:entry];
-//    XCTAssertEqual([service retrieveAllEntries].count, initialCount);
+
+    [service deleteEntry:entry];
+    XCTAssertEqual([service retrieveAllEntries].count, initialCount);
 }
 
 @end

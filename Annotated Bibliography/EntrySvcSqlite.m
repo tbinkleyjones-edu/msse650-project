@@ -11,6 +11,18 @@
 
 sqlite3 *database = nil;
 
+NSString * const CREATE_ENTRY_TABLE_SQL = @"CREATE TABLE IF NOT EXISTS entry (id INTEGER PRIMARY KEY AUTOINCREMENT, typeOfMedia VARCHAR(30), mediaTitle VARCHAR(100), sourceTitle VARCHAR(100), details VARCHAR(100), keywords VARCHAR(100), abstract VARCHAR(1000), notes VARCHAR(1000), url VARCHAR(100), doi VARCHAR(100))";
+NSString * const CREATE_AUTHOR_TABLE_SQL = @"CREATE TABLE IF NOT EXISTS author (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), entryId INTEGER, FOREIGN KEY(entryId) REFERENCES entry(id))";
+
+NSString * const INSERT_ENTRY_SQL = @"INSERT INTO entry (typeOfMedia, mediaTitle, sourceTitle, details, keywords, abstract, notes, url, doi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+NSString * const SELECT_ENTRY_SQL = @"SELECT * FROM entry ORDER BY sourceTitle";
+NSString * const UPDATE_ENTRY_SQL = @"UPDATE entry SET typeOfMedia=?, mediaTitle=?, sourceTitle=?, details=?, keywords=?, abstract=?, notes=?, url=?, doi=? WHERE id=?";
+NSString * const DELETE_ENTRY_SQL = @"DELETE FROM entry WHERE id=?";
+
+NSString * const SELECT_AUTHOR_SQL = @"SELECT name FROM author WHERE entryId=? ORDER BY name";
+NSString * const INSERT_AUTHOR_SQL = @"INSERT INTO author (name, entryId) VALUES (?, ?)";
+NSString * const DELETE_AUTHOR_SQL = @"DELETE FROM author WHERE entryId=?";
+
 @implementation EntrySvcSqlite
 
 - (id) init {
@@ -27,15 +39,12 @@ sqlite3 *database = nil;
             NSLog(@"database is open");
             NSLog(@"database file path: %@", databasePath);
 
-            NSString *createEntrySql =
-            @"CREATE TABLE IF NOT EXISTS entry (id INTEGER PRIMARY KEY AUTOINCREMENT, typeOfMedia VARCHAR(30), mediaTitle VARCHAR(100), sourceTitle VARCHAR(100), details VARCHAR(100), keywords VARCHAR(100), abstract VARCHAR(1000), notes VARCHAR(1000), url VARCHAR(100), doi VARCHAR(100))";
             char *errMsg;
-            if (sqlite3_exec(database, [createEntrySql UTF8String], NULL, NULL, &errMsg) != SQLITE_OK) {
+            if (sqlite3_exec(database, [CREATE_ENTRY_TABLE_SQL UTF8String], NULL, NULL, &errMsg) != SQLITE_OK) {
                 NSLog(@"Failed to create table %s", errMsg);
             }
 
-            NSString *createAuthorSql = @"CREATE TABLE IF NOT EXISTS author (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), entryId INTEGER, FOREIGN KEY(entryId) REFERENCES entry(id))";
-            if (sqlite3_exec(database, [createAuthorSql UTF8String], NULL, NULL, &errMsg) != SQLITE_OK) {
+            if (sqlite3_exec(database, [CREATE_AUTHOR_TABLE_SQL UTF8String], NULL, NULL, &errMsg) != SQLITE_OK) {
                 NSLog(@"Failed to create table %s", errMsg);
             }
 
@@ -50,11 +59,18 @@ sqlite3 *database = nil;
 
 - (Entry *) createEntry: (Entry *) entry {
     sqlite3_stmt *statement;
-    NSString *insertEntrySQL = [NSString stringWithFormat:
-                           @"INSERT INTO entry (typeOfMedia, mediaTitle, sourceTitle, details, keywords, abstract, notes, url, doi) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")",
-                           entry.typeOfMedia, entry.mediaTitle, entry.sourceTitle, entry.details, entry.keywords, entry.abstract, entry.notes, entry.url, entry.doi];
 
-    if (sqlite3_prepare_v2(database, [insertEntrySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+    if (sqlite3_prepare_v2(database, [INSERT_ENTRY_SQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_text(statement, 1, [entry.typeOfMedia UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 2, [entry.mediaTitle UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 3, [entry.sourceTitle UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 4, [entry.details UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 5, [entry.keywords UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 6, [entry.abstract UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 7, [entry.notes UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 8, [entry.url UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 9, [entry.doi UTF8String], -1, NULL);
+
         if (sqlite3_step(statement) == SQLITE_DONE) {
             entry.id = (int)sqlite3_last_insert_rowid(database);
             NSLog(@"*** Entry added");
@@ -76,34 +92,32 @@ sqlite3 *database = nil;
     NSMutableArray *entries = [NSMutableArray array];
 
     sqlite3_stmt *statement;
-    NSString *selectEntrySQL = [NSString stringWithFormat:
-                           @"SELECT * FROM entry ORDER BY sourceTitle"];
 
-    if (sqlite3_prepare_v2(database, [selectEntrySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+    if (sqlite3_prepare_v2(database, [SELECT_ENTRY_SQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
         NSLog(@"*** Entries retrieved");
         while (sqlite3_step(statement) == SQLITE_ROW) {
             int id = sqlite3_column_int(statement, 0);
-            char *typeOfMediaChars = (char *)sqlite3_column_text(statement, 1);
-            char *mediaTitleChars = (char *)sqlite3_column_text(statement, 2);
-            char *sourceTitleChars = (char *)sqlite3_column_text(statement, 3);
-            char *detailsChars = (char *)sqlite3_column_text(statement, 4);
-            char *keywordsChars = (char *)sqlite3_column_text(statement, 5);
-            char *abstractChars = (char *)sqlite3_column_text(statement, 6);
-            char *notesChars = (char *)sqlite3_column_text(statement, 7);
-            char *urlChars = (char *)sqlite3_column_text(statement, 8);
-            char *doiChars = (char *)sqlite3_column_text(statement, 9);
+            char *typeOfMedia = (char *)sqlite3_column_text(statement, 1);
+            char *mediaTitle = (char *)sqlite3_column_text(statement, 2);
+            char *sourceTitle = (char *)sqlite3_column_text(statement, 3);
+            char *details = (char *)sqlite3_column_text(statement, 4);
+            char *keywords = (char *)sqlite3_column_text(statement, 5);
+            char *abstract = (char *)sqlite3_column_text(statement, 6);
+            char *notes = (char *)sqlite3_column_text(statement, 7);
+            char *url = (char *)sqlite3_column_text(statement, 8);
+            char *doi = (char *)sqlite3_column_text(statement, 9);
 
             Entry *entry = [[Entry alloc] init];
             entry.id = id;
-            entry.typeOfMedia = [[NSString alloc] initWithUTF8String:typeOfMediaChars];
-            entry.mediaTitle = [[NSString alloc] initWithUTF8String:mediaTitleChars];
-            entry.sourceTitle = [[NSString alloc] initWithUTF8String:sourceTitleChars];
-            entry.details = [[NSString alloc] initWithUTF8String:detailsChars];
-            entry.keywords = [[NSString alloc] initWithUTF8String:keywordsChars];
-            entry.abstract = [[NSString alloc] initWithUTF8String:abstractChars];
-            entry.notes = [[NSString alloc] initWithUTF8String:notesChars];
-            entry.url = [[NSString alloc] initWithUTF8String:urlChars];
-            entry.doi = [[NSString alloc] initWithUTF8String:doiChars];
+            entry.typeOfMedia = typeOfMedia == NULL ? nil : [[NSString alloc] initWithUTF8String:typeOfMedia];
+            entry.mediaTitle = mediaTitle == NULL ? nil : [[NSString alloc] initWithUTF8String:mediaTitle];
+            entry.sourceTitle = sourceTitle == NULL ? nil : [[NSString alloc] initWithUTF8String:sourceTitle];
+            entry.details = details == NULL ? nil : [[NSString alloc] initWithUTF8String:details];
+            entry.keywords = keywords == NULL ? nil : [[NSString alloc] initWithUTF8String:keywords];
+            entry.abstract = abstract == NULL ? nil : [[NSString alloc] initWithUTF8String:abstract];
+            entry.notes = notes == NULL ? nil : [[NSString alloc] initWithUTF8String:notes];
+            entry.url = url == NULL ? nil : [[NSString alloc] initWithUTF8String:url];
+            entry.doi = doi == NULL ? nil : [[NSString alloc] initWithUTF8String:doi];
 
             [self retrieveAuthors:entry];
 
@@ -120,10 +134,20 @@ sqlite3 *database = nil;
 
 - (Entry *) updateEntry: (Entry *) entry {
     sqlite3_stmt *statement;
-    NSString *updateEntrySQL = [NSString stringWithFormat:
-                           @"UPDATE entry SET typeOfMedia=\"%@\", mediaTitle=\"%@\", sourceTitle=\"%@\", details=\"%@\", keywords=\"%@\", abstract=\"%@\", notes=\"%@\", url=\"%@\", doi=\"%@\" WHERE id=%li", entry.typeOfMedia, entry.mediaTitle, entry.sourceTitle, entry.details, entry.keywords, entry.abstract, entry.notes, entry.url, entry.doi, (long)entry.id];
 
-    if (sqlite3_prepare_v2(database, [updateEntrySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+    if (sqlite3_prepare_v2(database, [UPDATE_ENTRY_SQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+
+        sqlite3_bind_text(statement, 1, [entry.typeOfMedia UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 2, [entry.mediaTitle UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 3, [entry.sourceTitle UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 4, [entry.details UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 5, [entry.keywords UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 6, [entry.abstract UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 7, [entry.notes UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 8, [entry.url UTF8String], -1, NULL);
+        sqlite3_bind_text(statement, 9, [entry.doi UTF8String], -1, NULL);
+        sqlite3_bind_int(statement, 10, entry.id);
+
         if (sqlite3_step(statement) == SQLITE_DONE) {
             NSLog(@"*** Entry updated");
         } else {
@@ -148,11 +172,9 @@ sqlite3 *database = nil;
 
     [self deleteAuthors:entry];
 
-    NSString *deleteEntrySQL = [NSString stringWithFormat:
-                           @"DELETE FROM entry WHERE id=%li",
-                           (long)entry.id];
+    if (sqlite3_prepare_v2(database, [DELETE_ENTRY_SQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_int(statement, 1, entry.id);
 
-    if (sqlite3_prepare_v2(database, [deleteEntrySQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
         if (sqlite3_step(statement) == SQLITE_DONE) {
             NSLog(@"*** Entry deleted");
         } else {
@@ -170,14 +192,14 @@ sqlite3 *database = nil;
 
 - (void) retrieveAuthors: (Entry *) entry {
     sqlite3_stmt *statement;
-    NSString *selectSQL = [NSString stringWithFormat:
-                           @"SELECT name FROM author WHERE entryId=%li ORDER BY name", (long)entry.id];
 
-    if (sqlite3_prepare_v2(database, [selectSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+    if (sqlite3_prepare_v2(database, [SELECT_AUTHOR_SQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
         NSLog(@"*** Authors retrieved");
+        sqlite3_bind_int(statement, 1, entry.id);
+
         while (sqlite3_step(statement) == SQLITE_ROW) {
-            char *nameChars = (char *)sqlite3_column_text(statement, 0);
-            [entry.authors addObject:[[NSString alloc] initWithUTF8String:nameChars]];
+            char *name = (char *)sqlite3_column_text(statement, 0);
+            [entry.authors addObject:[[NSString alloc] initWithUTF8String:name]];
         }
         sqlite3_finalize(statement);
     } else {
@@ -189,35 +211,32 @@ sqlite3 *database = nil;
 - (void) insertAuthors: (Entry *) entry {
     sqlite3_stmt *statement;
 
-    // TODO: use params and reuse statement.
-    for (NSString *name in entry.authors) {
-        NSString *insertSQL = [NSString stringWithFormat:
-                               @"INSERT INTO author (name, entryId) VALUES (\"%@\", \"%li\")",
-                               name, (long)entry.id];
+    if (sqlite3_prepare_v2(database, [INSERT_AUTHOR_SQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        for (NSString *name in entry.authors) {
+            sqlite3_bind_text(statement, 1, [name UTF8String], -1, NULL);
+            sqlite3_bind_int(statement, 2, entry.id);
 
-        if (sqlite3_prepare_v2(database, [insertSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement) == SQLITE_DONE) {
                 NSLog(@"*** Author added");
             } else {
                 NSLog(@"*** Author NOT added");
                 NSLog(@"*** SQL error: %s\n", sqlite3_errmsg(database));
             }
-            sqlite3_finalize(statement);
-        } else {
-            NSLog(@"*** Author NOT added");
-            NSLog(@"*** SQL error: %s\n", sqlite3_errmsg(database));
+            sqlite3_reset(statement);
         }
+        sqlite3_finalize(statement);
+    } else {
+        NSLog(@"*** Author NOT added");
+        NSLog(@"*** SQL error: %s\n", sqlite3_errmsg(database));
     }
 }
 
 - (void) deleteAuthors: (Entry *) entry {
     sqlite3_stmt *statement;
 
-    NSString *deleteSQL = [NSString stringWithFormat:
-                                @"DELETE FROM author WHERE entryId=%li",
-                                (long)entry.id];
+    if (sqlite3_prepare_v2(database, [DELETE_AUTHOR_SQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_int(statement, 1, entry.id);
 
-    if (sqlite3_prepare_v2(database, [deleteSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
         if (sqlite3_step(statement) == SQLITE_DONE) {
             NSLog(@"*** Authors deleted");
         } else {
