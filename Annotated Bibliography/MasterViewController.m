@@ -10,22 +10,22 @@
 
 #import "DetailViewController.h"
 
-#import "EntrySvcSqlite.h"
+#import "CitationSvcCoreData.h"
 
 @interface MasterViewController()
 
-@property (strong, nonatomic) EntrySvcSqlite *entries;
+@property (strong, nonatomic) CitationSvcCoreData *citationService;
 
 @end
 
 @implementation MasterViewController
 
-EntrySvcSqlite *entries;
+CitationSvcCoreData *citationService;
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.entries = [[EntrySvcSqlite alloc] init];
+    self.citationService = [[CitationSvcCoreData alloc] init];
 }
 
 - (void)viewDidLoad
@@ -51,17 +51,17 @@ EntrySvcSqlite *entries;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.entries retrieveAllEntries].count;
+    return [self.citationService retrieveAllCitations].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitationCell" forIndexPath:indexPath];
 
-    Entry *object = [[self.entries retrieveAllEntries] objectAtIndex:indexPath.row];
+    Citation *object = [[self.citationService retrieveAllCitations] objectAtIndex:indexPath.row];
     cell.textLabel.text = [object sourceTitle];
     if (object.authors.count > 0) {
-        cell.detailTextLabel.text = [object.authors objectAtIndex:0];
+        //cell.detailTextLabel.text = [object.authors objectAtIndex:0];
     } else {
         cell.detailTextLabel.text = @"";
     }
@@ -83,8 +83,9 @@ EntrySvcSqlite *entries;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Entry *object = [[self.entries retrieveAllEntries] objectAtIndex:indexPath.row];
-        [self.entries deleteEntry:object];
+        Citation *object = [[self.citationService retrieveAllCitations] objectAtIndex:indexPath.row];
+        [self.citationService deleteCitation:object];
+        [self.citationService commitChanges];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -113,33 +114,34 @@ EntrySvcSqlite *entries;
 
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Entry *object = [[self.entries retrieveAllEntries] objectAtIndex:indexPath.row];
-        NSLog(@"Editing Entry %@", object);
+        Citation *object = [[self.citationService retrieveAllCitations] objectAtIndex:indexPath.row];
+        NSLog(@"Editing Citation %@", object);
         [[segue destinationViewController] setDetailItem:object];
         [[segue destinationViewController] setDelegate:self];
 
-    } else if ([[segue identifier] isEqualToString:@"addEntry"]) {
-        NSLog(@"Adding new entry");
-        Entry *object = [[Entry alloc] init];
+    } else if ([[segue identifier] isEqualToString:@"addCitation"]) {
+        NSLog(@"Adding new citation");
+        Citation *object = [self.citationService createCitation];
         [[segue destinationViewController] setDetailItem:object];
         [[segue destinationViewController] setDelegate:self];
         [[segue destinationViewController] setEditing:YES animated:NO];
     }
 }
 
-- (void) updateEntry:(Entry *)entry {
-    NSLog(@"updating entry %@", entry);
-    if (entry.id != 0) {
-        [self.entries updateEntry:entry];
-    } else {
-        [self.entries createEntry:entry];
-    }
+- (Author *) createAuthor {
+    return [self.citationService createAuthor];
+}
+
+- (void) updateCitation:(Citation *)citation {
+    NSLog(@"commiting changes %@", citation);
+    [self.citationService commitChanges];
     [self.tableView reloadData];
 }
 
-- (void) deleteEntry:(Entry *)entry {
-    NSLog(@"deleting entry %@", entry);
-    [self.entries deleteEntry:entry];
+- (void) deleteCitation:(Citation *)citation {
+    NSLog(@"deleting citation %@", citation);
+    [self.citationService deleteCitation:citation];
+    [self.citationService commitChanges];
     [self.tableView reloadData];
 }
 

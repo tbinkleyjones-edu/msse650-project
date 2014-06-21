@@ -8,7 +8,7 @@
 
 #import "DetailViewController.h"
 
-#import "Entry.h"
+#import "Citation.h"
 
 //static NSInteger const TITLES_SECTION = 0;
 static NSInteger const AUTHORS_SECTION = 1;
@@ -38,11 +38,11 @@ static NSInteger const NOTES_SECTION = 3;
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        Entry *entry = self.detailItem;
-        self.sourceTitleTextField.text = entry.sourceTitle;
-        self.mediaTitleTextField.text = entry.mediaTitle;
-        self.abstractTextView.text = entry.abstract;
-        self.notesTextView.text = entry.notes;
+        Citation *citation = self.detailItem;
+        self.sourceTitleTextField.text = citation.sourceTitle;
+        self.mediaTitleTextField.text = citation.mediaTitle;
+        self.abstractTextView.text = citation.abstract;
+        self.notesTextView.text = citation.notes;
     }
 }
 
@@ -97,21 +97,22 @@ static NSInteger const NOTES_SECTION = 3;
         self.abstractTextView.editable = NO;
         self.notesTextView.editable = NO;
 
-        Entry *entry = self.detailItem;
-        entry.sourceTitle = self.sourceTitleTextField.text;
-        entry.mediaTitle = self.mediaTitleTextField.text;
+        Citation *citation = self.detailItem;
+        citation.sourceTitle = self.sourceTitleTextField.text;
+        citation.mediaTitle = self.mediaTitleTextField.text;
 
         for (NSInteger i=0; i<[self.detailItem authors].count; i++) {
             UITableViewCell *cell = [self.staticTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:AUTHORS_SECTION]];
 
             [[cell.contentView.subviews objectAtIndex:0] setEnabled:NO];
-            [entry.authors replaceObjectAtIndex:i withObject:[[cell.contentView.subviews objectAtIndex:0] text]];
+            Author *author = [citation.authors objectAtIndex:i];
+            author.name = [[cell.contentView.subviews objectAtIndex:0] text];
         }
 
-        entry.abstract = self.abstractTextView.text;
-        entry.notes = self.notesTextView.text;
+        citation.abstract = self.abstractTextView.text;
+        citation.notes = self.notesTextView.text;
         
-        [self.delegate updateEntry:self.detailItem];
+        [self.delegate updateCitation:self.detailItem];
     }
 
 }
@@ -150,8 +151,8 @@ static NSInteger const NOTES_SECTION = 3;
 {
     if (indexPath.section == AUTHORS_SECTION && tableView.isEditing) {
         // TODO: return insert type for last row.
-        Entry *entry = self.detailItem;
-        if (indexPath.row >= entry.authors.count) {
+        Citation *citation = self.detailItem;
+        if (indexPath.row >= citation.authors.count) {
             return UITableViewCellEditingStyleInsert;
         }
         return UITableViewCellEditingStyleDelete;
@@ -173,11 +174,11 @@ static NSInteger const NOTES_SECTION = 3;
 {
     if (section == AUTHORS_SECTION ) {
         // return number of authors. if in edit mode, return number of authors + 1
-        Entry *entry = self.detailItem;
+        Citation *citation = self.detailItem;
         if (tableView.isEditing) {
-            return entry.authors.count + 1;
+            return citation.authors.count + 1;
         }
-        return entry.authors.count;
+        return citation.authors.count;
     }
     return [super tableView:tableView numberOfRowsInSection:section];
 }
@@ -210,8 +211,9 @@ static NSInteger const NOTES_SECTION = 3;
                 [cell.contentView addSubview:textField];
             }
 
-            Entry *entry = self.detailItem;
-            [[cell.contentView.subviews objectAtIndex:0] setText:[entry.authors objectAtIndex:indexPath.row]];
+            Citation *citation = self.detailItem;
+            Author *author = [citation.authors objectAtIndex:indexPath.row];
+            [[cell.contentView.subviews objectAtIndex:0] setText:author.name];
             return cell;
         }
     }
@@ -222,14 +224,15 @@ static NSInteger const NOTES_SECTION = 3;
 {
     if (indexPath.section == AUTHORS_SECTION) {
         NSLog(@"committing style for row: %d", indexPath.row);
-        Entry *entry = self.detailItem;
+        Citation *citation = self.detailItem;
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             // remove the specified author from the array.
-            [entry.authors removeObjectAtIndex:indexPath.row];
+            [citation removeObjectFromAuthorsAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         } else if (editingStyle == UITableViewCellEditingStyleInsert) {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-            [entry.authors addObject: @""];
+            Author *author = [self.delegate createAuthor];
+            [citation addAuthorsObject:author];
             [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     }
@@ -242,7 +245,7 @@ static NSInteger const NOTES_SECTION = 3;
     [self setEditing:NO animated:YES];
 }
 
-- (IBAction)deleteEntry:(id)sender {
+- (IBAction)deleteCitation:(id)sender {
     // called when the delete button on the form is clicked. Display an action sheet
     // with cancel and delete options
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -259,7 +262,7 @@ static NSInteger const NOTES_SECTION = 3;
 
     // send a delete message to the delegate, and then navigate back
     if (buttonIndex == 0) {
-        [self.delegate deleteEntry:self.detailItem];
+        [self.delegate deleteCitation:self.detailItem];
         [self.navigationController popViewControllerAnimated:TRUE];
     }
 }

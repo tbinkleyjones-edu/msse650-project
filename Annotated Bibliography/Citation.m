@@ -24,4 +24,26 @@
 @dynamic typeOfMedia;
 @dynamic authors;
 
+// Note: there is a known bug with Core Data and ordered sets that requires an override of the generated accessors.
+
+- (void)removeObjectFromAuthorsAtIndex:(NSUInteger)idx; {
+    Author *author = [self.authors objectAtIndex:idx];
+    [self removeAuthorsObject:author];
+}
+
+
+- (void)addAuthorsObject:(Author *)value;
+{
+    NSMutableOrderedSet* authors = [NSMutableOrderedSet orderedSetWithOrderedSet:self.authors];
+    [authors addObject:value];
+    self.authors = authors;
+}
+
+- (void)removeAuthorsObject:(Author *)value;
+{
+    NSMutableOrderedSet* authors = [NSMutableOrderedSet orderedSetWithOrderedSet:self.authors];
+    [authors removeObject:value];
+    self.authors = authors;
+}
+
 @end

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EntryOperationDelegate.h"
+#import "CitationOperationDelegate.h"
 
 
-@interface MasterViewController : UITableViewController <EntryOperationDelegate>
+@interface MasterViewController : UITableViewController <CitationOperationDelegate>
 
 @end

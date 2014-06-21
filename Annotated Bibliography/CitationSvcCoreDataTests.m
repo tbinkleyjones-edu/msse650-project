@@ -49,7 +49,8 @@
 
     Author *author = [service createAuthor];
     author.name = @"author 0";
-    citation.authors = [[NSOrderedSet alloc] initWithObject:author];
+    [citation addAuthorsObject:author];
+    XCTAssertEqual(citation.authors.count, 1);
     [service commitChanges];
     XCTAssertEqual([service retrieveAllCitations].count, 1);
 
@@ -65,11 +66,13 @@
 
     // update some more information and commit
     citation.details = @"this is a cool paper";
+    [citation removeObjectFromAuthorsAtIndex:0];
+    XCTAssertEqual(citation.authors.count, 0);
     author = [service createAuthor];
     author.name = @"author 1";
-    NSMutableOrderedSet *authors = [[NSMutableOrderedSet alloc] initWithOrderedSet:citation.authors];
-    [authors addObject:author];
-    citation.authors = authors;
+    [citation addAuthorsObject:author];
+    XCTAssertEqual(citation.authors.count, 1);
+
     [service commitChanges];
 
     // create a new service to verify changes were comitted.
@@ -80,8 +83,8 @@
     citation = [[service retrieveAllCitations] objectAtIndex:0];
     XCTAssertTrue([citation.details isEqualToString:@"this is a cool paper"], "commit failed, details do not match");
 
-    NSLog(@"found author: %@", [citation.authors objectAtIndex:1]);
-    author = [citation.authors objectAtIndex:1];
+    NSLog(@"found author: %@", [citation.authors objectAtIndex:0]);
+    author = [citation.authors objectAtIndex:0];
     XCTAssertTrue([author.name isEqualToString:@"author 1"], "commit failed, author names do not match");
 
     [service deleteCitation:citation];

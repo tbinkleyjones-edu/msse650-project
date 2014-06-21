@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22139DAB1944C9880050DD8E /* EntrySvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 22139DAA1944C9880050DD8E /* EntrySvcArchive.m */; };
-		22139DAD1944CA9D0050DD8E /* EntrySvcArchiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */; };
 		221BD2A819323D8600A1486D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2A719323D8600A1486D /* Foundation.framework */; };
 		221BD2AA19323D8600A1486D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2A919323D8600A1486D /* CoreGraphics.framework */; };
 		221BD2AC19323D8600A1486D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2AB19323D8600A1486D /* UIKit.framework */; };
@@ -24,20 +22,15 @@
 		221BD2CC19323D8600A1486D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2AB19323D8600A1486D /* UIKit.framework */; };
 		221BD2D419323D8600A1486D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2D219323D8600A1486D /* InfoPlist.strings */; };
 		221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */; };
-		221BD2E21932416E00A1486D /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2E11932416E00A1486D /* Entry.m */; };
-		221BD2E61932471E00A1486D /* EntrySvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2E51932471E00A1486D /* EntrySvcCache.m */; };
-		221BD2E9193249B300A1486D /* EntrySvcCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */; };
 		221BD2EE1932A76D00A1486D /* image-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2ED1932A76D00A1486D /* image-1.png */; };
 		2251B774194CB0880054854F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251B773194CB0880054854F /* libsqlite3.dylib */; };
-		2251B777194CB0AE0054854F /* EntrySvcSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251B776194CB0AE0054854F /* EntrySvcSqlite.m */; };
-		2251B779194CBC550054854F /* EntrySvcSqliteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251B778194CBC550054854F /* EntrySvcSqliteTests.m */; };
 		226E39CF1955DA4B00E4FCBE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 226E39CD1955DA4B00E4FCBE /* Model.xcdatamodeld */; };
-		226E39D81955EAB800E4FCBE /* MediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39D71955EAB800E4FCBE /* MediaType.m */; };
-		226E39DB1955EAB800E4FCBE /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39DA1955EAB800E4FCBE /* Author.m */; };
-		226E39DE1955EAB800E4FCBE /* Citation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39DD1955EAB800E4FCBE /* Citation.m */; };
 		226E39E21955EB5E00E4FCBE /* CitationSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */; };
 		226E39E41955EBE200E4FCBE /* CitationSvcCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39E31955EBE200E4FCBE /* CitationSvcCoreDataTests.m */; };
 		226E39E61955F11E00E4FCBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226E39E51955F11E00E4FCBE /* CoreData.framework */; };
+		226E39F21956199300E4FCBE /* MediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F11956199300E4FCBE /* MediaType.m */; };
+		226E39F51956199400E4FCBE /* Citation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F41956199400E4FCBE /* Citation.m */; };
+		226E39F81956199400E4FCBE /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F71956199400E4FCBE /* Author.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22139DA91944C9880050DD8E /* EntrySvcArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySvcArchive.h; sourceTree = "<group>"; };
-		22139DAA1944C9880050DD8E /* EntrySvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcArchive.m; sourceTree = "<group>"; };
-		22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcArchiveTests.m; sourceTree = "<group>"; };
 		221BD2A419323D8600A1486D /* Annotated Bibliography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annotated Bibliography.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		221BD2A719323D8600A1486D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		221BD2A919323D8600A1486D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,30 +65,21 @@
 		221BD2D119323D8600A1486D /* Annotated BibliographyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Annotated BibliographyTests-Info.plist"; sourceTree = "<group>"; };
 		221BD2D319323D8600A1486D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Annotated_BibliographyTests.m; sourceTree = "<group>"; };
-		221BD2E01932416E00A1486D /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
-		221BD2E11932416E00A1486D /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
-		221BD2E3193246A800A1486D /* EntrySvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntrySvc.h; sourceTree = "<group>"; };
-		221BD2E41932471E00A1486D /* EntrySvcCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySvcCache.h; sourceTree = "<group>"; };
-		221BD2E51932471E00A1486D /* EntrySvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcCache.m; sourceTree = "<group>"; };
-		221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcCacheTests.m; sourceTree = "<group>"; };
 		221BD2ED1932A76D00A1486D /* image-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-1.png"; sourceTree = "<group>"; };
 		2251B773194CB0880054854F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		2251B775194CB0AE0054854F /* EntrySvcSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySvcSqlite.h; sourceTree = "<group>"; };
-		2251B776194CB0AE0054854F /* EntrySvcSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcSqlite.m; sourceTree = "<group>"; };
-		2251B778194CBC550054854F /* EntrySvcSqliteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySvcSqliteTests.m; sourceTree = "<group>"; };
 		226E39CE1955DA4B00E4FCBE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		226E39D61955EAB800E4FCBE /* MediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaType.h; sourceTree = "<group>"; };
-		226E39D71955EAB800E4FCBE /* MediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaType.m; sourceTree = "<group>"; };
-		226E39D91955EAB800E4FCBE /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
-		226E39DA1955EAB800E4FCBE /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
-		226E39DC1955EAB800E4FCBE /* Citation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Citation.h; sourceTree = "<group>"; };
-		226E39DD1955EAB800E4FCBE /* Citation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Citation.m; sourceTree = "<group>"; };
 		226E39DF1955EAEE00E4FCBE /* CitationSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitationSvc.h; sourceTree = "<group>"; };
 		226E39E01955EB5E00E4FCBE /* CitationSvcCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitationSvcCoreData.h; sourceTree = "<group>"; };
 		226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitationSvcCoreData.m; sourceTree = "<group>"; };
 		226E39E31955EBE200E4FCBE /* CitationSvcCoreDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitationSvcCoreDataTests.m; path = "../Annotated Bibliography/CitationSvcCoreDataTests.m"; sourceTree = "<group>"; };
 		226E39E51955F11E00E4FCBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		22F8FF8E193BD59F00636EA7 /* EntryOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryOperationDelegate.h; sourceTree = "<group>"; };
+		226E39F01956199300E4FCBE /* MediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaType.h; sourceTree = "<group>"; };
+		226E39F11956199300E4FCBE /* MediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaType.m; sourceTree = "<group>"; };
+		226E39F31956199400E4FCBE /* Citation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Citation.h; sourceTree = "<group>"; };
+		226E39F41956199400E4FCBE /* Citation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Citation.m; sourceTree = "<group>"; };
+		226E39F61956199400E4FCBE /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		226E39F71956199400E4FCBE /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		226E39F9195622D400E4FCBE /* CitationOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CitationOperationDelegate.h; path = ../CitationOperationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +147,7 @@
 				221BD2DF1932413C00A1486D /* Model */,
 				221BD2B619323D8600A1486D /* AppDelegate.h */,
 				221BD2B719323D8600A1486D /* AppDelegate.m */,
+				226E39F9195622D400E4FCBE /* CitationOperationDelegate.h */,
 				221BD2B919323D8600A1486D /* Main.storyboard */,
 				221BD2BC19323D8600A1486D /* MasterViewController.h */,
 				221BD2BD19323D8600A1486D /* MasterViewController.m */,
@@ -173,7 +155,6 @@
 				221BD2C019323D8600A1486D /* DetailViewController.m */,
 				221BD2C219323D8600A1486D /* Images.xcassets */,
 				221BD2AE19323D8600A1486D /* Supporting Files */,
-				22F8FF8E193BD59F00636EA7 /* EntryOperationDelegate.h */,
 			);
 			path = "Annotated Bibliography";
 			sourceTree = "<group>";
@@ -212,21 +193,12 @@
 			isa = PBXGroup;
 			children = (
 				226E39CD1955DA4B00E4FCBE /* Model.xcdatamodeld */,
-				226E39DC1955EAB800E4FCBE /* Citation.h */,
-				226E39DD1955EAB800E4FCBE /* Citation.m */,
-				226E39D91955EAB800E4FCBE /* Author.h */,
-				226E39DA1955EAB800E4FCBE /* Author.m */,
-				226E39D61955EAB800E4FCBE /* MediaType.h */,
-				226E39D71955EAB800E4FCBE /* MediaType.m */,
-				221BD2E01932416E00A1486D /* Entry.h */,
-				221BD2E11932416E00A1486D /* Entry.m */,
-				221BD2E3193246A800A1486D /* EntrySvc.h */,
-				221BD2E41932471E00A1486D /* EntrySvcCache.h */,
-				221BD2E51932471E00A1486D /* EntrySvcCache.m */,
-				22139DA91944C9880050DD8E /* EntrySvcArchive.h */,
-				22139DAA1944C9880050DD8E /* EntrySvcArchive.m */,
-				2251B775194CB0AE0054854F /* EntrySvcSqlite.h */,
-				2251B776194CB0AE0054854F /* EntrySvcSqlite.m */,
+				226E39F61956199400E4FCBE /* Author.h */,
+				226E39F71956199400E4FCBE /* Author.m */,
+				226E39F31956199400E4FCBE /* Citation.h */,
+				226E39F41956199400E4FCBE /* Citation.m */,
+				226E39F01956199300E4FCBE /* MediaType.h */,
+				226E39F11956199300E4FCBE /* MediaType.m */,
 				226E39DF1955EAEE00E4FCBE /* CitationSvc.h */,
 				226E39E01955EB5E00E4FCBE /* CitationSvcCoreData.h */,
 				226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */,
@@ -238,9 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				226E39E31955EBE200E4FCBE /* CitationSvcCoreDataTests.m */,
-				221BD2E8193249B300A1486D /* EntrySvcCacheTests.m */,
-				22139DAC1944CA9D0050DD8E /* EntrySvcArchiveTests.m */,
-				2251B778194CBC550054854F /* EntrySvcSqliteTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -345,17 +314,13 @@
 			files = (
 				221BD2B819323D8600A1486D /* AppDelegate.m in Sources */,
 				226E39E21955EB5E00E4FCBE /* CitationSvcCoreData.m in Sources */,
-				221BD2E21932416E00A1486D /* Entry.m in Sources */,
-				226E39DB1955EAB800E4FCBE /* Author.m in Sources */,
+				226E39F81956199400E4FCBE /* Author.m in Sources */,
+				226E39F51956199400E4FCBE /* Citation.m in Sources */,
 				221BD2BE19323D8600A1486D /* MasterViewController.m in Sources */,
-				2251B777194CB0AE0054854F /* EntrySvcSqlite.m in Sources */,
 				221BD2B419323D8600A1486D /* main.m in Sources */,
 				226E39CF1955DA4B00E4FCBE /* Model.xcdatamodeld in Sources */,
-				226E39D81955EAB800E4FCBE /* MediaType.m in Sources */,
-				226E39DE1955EAB800E4FCBE /* Citation.m in Sources */,
-				22139DAB1944C9880050DD8E /* EntrySvcArchive.m in Sources */,
-				221BD2E61932471E00A1486D /* EntrySvcCache.m in Sources */,
 				221BD2C119323D8600A1486D /* DetailViewController.m in Sources */,
+				226E39F21956199300E4FCBE /* MediaType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,10 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226E39E41955EBE200E4FCBE /* CitationSvcCoreDataTests.m in Sources */,
-				221BD2E9193249B300A1486D /* EntrySvcCacheTests.m in Sources */,
 				221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */,
-				22139DAD1944CA9D0050DD8E /* EntrySvcArchiveTests.m in Sources */,
-				2251B779194CBC550054854F /* EntrySvcSqliteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
