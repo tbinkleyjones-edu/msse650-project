@@ -16,6 +16,7 @@ static NSInteger const TITLES_SECTION = 0;
 static NSInteger const AUTHORS_SECTION = 1;
 static NSInteger const ABSTRACT_SECTION = 2;
 static NSInteger const NOTES_SECTION = 3;
+static NSInteger const OTHER_SECTION = 4;
 
 @interface DetailViewController ()
 @property (strong, nonatomic) MediaType *currentMediaType;
@@ -299,6 +300,25 @@ static NSInteger const NOTES_SECTION = 3;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"did select row to %ld", indexPath.row);
+
+    if (indexPath.section == OTHER_SECTION && !tableView.isEditing) {
+        if (indexPath.row == 2) {
+            // launch url if not empty
+            Citation *citation = self.detailItem;
+            if([[citation.url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:citation.url]];
+            }
+
+        } else if (indexPath.row == 3) {
+            // launch doi if not empty
+            Citation *citation = self.detailItem;
+            if([[citation.doi stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0) {
+                NSString *doiUrl = [NSString stringWithFormat:@"http://dx.doi.org/%@", citation.doi];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:doiUrl]];
+            }
+
+        }
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
