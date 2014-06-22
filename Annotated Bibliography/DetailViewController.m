@@ -10,6 +10,7 @@
 
 #import "Citation.h"
 #import "MediaType.h"
+#import "MediaTypeTableViewController.h"
 
 //static NSInteger const TITLES_SECTION = 0;
 static NSInteger const AUTHORS_SECTION = 1;
@@ -183,7 +184,6 @@ static NSInteger const NOTES_SECTION = 3;
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == AUTHORS_SECTION && tableView.isEditing) {
-        // TODO: return insert type for last row.
         Citation *citation = self.detailItem;
         if (indexPath.row >= citation.authors.count) {
             return UITableViewCellEditingStyleInsert;
@@ -195,7 +195,7 @@ static NSInteger const NOTES_SECTION = 3;
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"asking for indentation level %ld-%ld", (long)indexPath.section, (long)indexPath.row);
+    //NSLog(@"asking for indentation level %ld-%ld", (long)indexPath.section, (long)indexPath.row);
 
      if (indexPath.section == AUTHORS_SECTION) {
         return 0;
@@ -242,6 +242,7 @@ static NSInteger const NOTES_SECTION = 3;
                 UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(18, 5, 300, 30)];
                 textField.enabled = tableView.isEditing;
                 [cell.contentView addSubview:textField];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
 
             Citation *citation = self.detailItem;
@@ -268,6 +269,21 @@ static NSInteger const NOTES_SECTION = 3;
             [citation addAuthorsObject:author];
             [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepareForSeque %@", [segue identifier]);
+
+    if ([[segue identifier] isEqualToString:@"editMediaType"]) {
+        NSLog(@"Editing Media Type %@", self.currentMediaType);
+
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        MediaTypeTableViewController *viewController = (MediaTypeTableViewController *)navController.topViewController;
+
+        viewController.selectedType = self.currentMediaType;
+        viewController.mediaTypes = self.mediaTypes;
     }
 }
 
@@ -298,6 +314,18 @@ static NSInteger const NOTES_SECTION = 3;
         [self.delegate deleteCitation:self.detailItem];
         [self.navigationController popViewControllerAnimated:TRUE];
     }
+}
+
+- (IBAction)unwindToView:(UIStoryboardSegue *)segue {
+    NSLog(@"Unwinding to seque %@", [segue identifier]);
+
+    MediaTypeTableViewController *view = [segue sourceViewController];
+    MediaType *mediaType = view.selectedType;
+    self.currentMediaType = mediaType;
+    self.readOnlyMediaTitleCell.textLabel.text = mediaType.type;
+    self.typeOfMediaCell.detailTextLabel.text = mediaType.type;
+
+    [self.tableView reloadData];
 }
 
 @end

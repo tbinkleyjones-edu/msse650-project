@@ -119,7 +119,7 @@ CitationSvcCoreData *citationService;
         NSArray *mediaTypes = [self.citationService retrieveAllMediaTypes];
         NSLog(@"Editing Citation %@", object);
         [[segue destinationViewController] setDetailItem:object];
-        [[segue destinationViewController] setMediatTypes:mediaTypes];
+        [[segue destinationViewController] setMediaTypes:mediaTypes];
         [[segue destinationViewController] setDelegate:self];
 
     } else if ([[segue identifier] isEqualToString:@"addCitation"]) {
@@ -127,7 +127,7 @@ CitationSvcCoreData *citationService;
         Citation *object = [self.citationService createCitation];
         NSArray *mediaTypes = [self.citationService retrieveAllMediaTypes];
         [[segue destinationViewController] setDetailItem:object];
-        [[segue destinationViewController] setMediatTypes:mediaTypes];
+        [[segue destinationViewController] setMediaTypes:mediaTypes];
         [[segue destinationViewController] setDelegate:self];
         [[segue destinationViewController] setEditing:YES animated:NO];
     }

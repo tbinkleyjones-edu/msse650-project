@@ -12,7 +12,7 @@
 @interface DetailViewController : UITableViewController <UITextViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) id detailItem;
-@property (strong, nonatomic) NSArray *mediatTypes;
+@property (strong, nonatomic) NSArray *mediaTypes;
 @property (weak) id <CitationOperationDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *staticTableView;
 
@@ -34,4 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 - (IBAction)deleteCitation:(id)sender;
+
+- (IBAction)unwindToView:(UIStoryboardSegue *)segue;
+
 @end

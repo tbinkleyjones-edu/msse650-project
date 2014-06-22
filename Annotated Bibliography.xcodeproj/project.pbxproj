@@ -31,6 +31,7 @@
 		226E39F21956199300E4FCBE /* MediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F11956199300E4FCBE /* MediaType.m */; };
 		226E39F51956199400E4FCBE /* Citation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F41956199400E4FCBE /* Citation.m */; };
 		226E39F81956199400E4FCBE /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F71956199400E4FCBE /* Author.m */; };
+		229B0E651957577700C468C3 /* MediaTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B0E641957577700C468C3 /* MediaTypeTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		226E39F61956199400E4FCBE /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		226E39F71956199400E4FCBE /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
 		226E39F9195622D400E4FCBE /* CitationOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CitationOperationDelegate.h; path = ../CitationOperationDelegate.h; sourceTree = "<group>"; };
+		229B0E631957577700C468C3 /* MediaTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTypeTableViewController.h; sourceTree = "<group>"; };
+		229B0E641957577700C468C3 /* MediaTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTypeTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				221BD2BD19323D8600A1486D /* MasterViewController.m */,
 				221BD2BF19323D8600A1486D /* DetailViewController.h */,
 				221BD2C019323D8600A1486D /* DetailViewController.m */,
+				229B0E631957577700C468C3 /* MediaTypeTableViewController.h */,
+				229B0E641957577700C468C3 /* MediaTypeTableViewController.m */,
 				221BD2C219323D8600A1486D /* Images.xcassets */,
 				221BD2AE19323D8600A1486D /* Supporting Files */,
 			);
@@ -319,6 +324,7 @@
 				221BD2BE19323D8600A1486D /* MasterViewController.m in Sources */,
 				221BD2B419323D8600A1486D /* main.m in Sources */,
 				226E39CF1955DA4B00E4FCBE /* Model.xcdatamodeld in Sources */,
+				229B0E651957577700C468C3 /* MediaTypeTableViewController.m in Sources */,
 				221BD2C119323D8600A1486D /* DetailViewController.m in Sources */,
 				226E39F21956199300E4FCBE /* MediaType.m in Sources */,
 			);
