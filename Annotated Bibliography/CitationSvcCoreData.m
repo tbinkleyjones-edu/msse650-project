@@ -59,12 +59,14 @@ NSManagedObjectContext *moc = nil;
 }
 
 - (Author *) createAuthor {
-    Author * author = [NSEntityDescription insertNewObjectForEntityForName:@"Author" inManagedObjectContext:moc];
+    Author *author = [NSEntityDescription insertNewObjectForEntityForName:@"Author" inManagedObjectContext:moc];
     return author;
 }
 
 - (Citation *) createCitation {
-    Citation * citation = [NSEntityDescription insertNewObjectForEntityForName:@"Citation" inManagedObjectContext:moc];
+    Citation *citation = [NSEntityDescription insertNewObjectForEntityForName:@"Citation" inManagedObjectContext:moc];
+    // set a default media type
+    citation.typeOfMedia = [[self retrieveAllMediaTypes] objectAtIndex:0];
     return citation;
 }
 

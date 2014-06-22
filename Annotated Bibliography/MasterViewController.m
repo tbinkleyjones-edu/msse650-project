@@ -61,7 +61,8 @@ CitationSvcCoreData *citationService;
     Citation *object = [[self.citationService retrieveAllCitations] objectAtIndex:indexPath.row];
     cell.textLabel.text = [object sourceTitle];
     if (object.authors.count > 0) {
-        //cell.detailTextLabel.text = [object.authors objectAtIndex:0];
+        Author *author = [object.authors objectAtIndex:0];
+        cell.detailTextLabel.text = author.name;
     } else {
         cell.detailTextLabel.text = @"";
     }
@@ -115,14 +116,18 @@ CitationSvcCoreData *citationService;
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Citation *object = [[self.citationService retrieveAllCitations] objectAtIndex:indexPath.row];
+        NSArray *mediaTypes = [self.citationService retrieveAllMediaTypes];
         NSLog(@"Editing Citation %@", object);
         [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setMediatTypes:mediaTypes];
         [[segue destinationViewController] setDelegate:self];
 
     } else if ([[segue identifier] isEqualToString:@"addCitation"]) {
         NSLog(@"Adding new citation");
         Citation *object = [self.citationService createCitation];
+        NSArray *mediaTypes = [self.citationService retrieveAllMediaTypes];
         [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setMediatTypes:mediaTypes];
         [[segue destinationViewController] setDelegate:self];
         [[segue destinationViewController] setEditing:YES animated:NO];
     }

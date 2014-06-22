@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 #import "Citation.h"
+#import "MediaType.h"
 
 //static NSInteger const TITLES_SECTION = 0;
 static NSInteger const AUTHORS_SECTION = 1;
@@ -16,6 +17,7 @@ static NSInteger const ABSTRACT_SECTION = 2;
 static NSInteger const NOTES_SECTION = 3;
 
 @interface DetailViewController ()
+@property (strong, nonatomic) MediaType *currentMediaType;
 - (void)configureView;
 @end
 
@@ -39,10 +41,24 @@ static NSInteger const NOTES_SECTION = 3;
 
     if (self.detailItem) {
         Citation *citation = self.detailItem;
+
         self.sourceTitleTextField.text = citation.sourceTitle;
-        self.mediaTitleTextField.text = citation.mediaTitle;
+
+        self.currentMediaType = citation.typeOfMedia;
+        // TODO: set the image
+        self.readOnlyMediaTitleCell.textLabel.text = citation.typeOfMedia.type;
+        self.readOnlyMediaTitleCell.detailTextLabel.text = citation.mediaTitle;
+
+        self.typeOfMediaCell.detailTextLabel.text = citation.typeOfMedia.type;
+        self.editableMediaTitleTextField.text = citation.mediaTitle;
+
         self.abstractTextView.text = citation.abstract;
         self.notesTextView.text = citation.notes;
+
+        self.detailsTextField.text = citation.details;
+        self.keywordsTextField.text = citation.keywords;
+        self.urlTextField.text = citation.keywords;
+        self.doiTextField.text = citation.doi;
     }
 }
 
@@ -70,9 +86,14 @@ static NSInteger const NOTES_SECTION = 3;
         self.deleteButton.enabled = YES;
 
         self.sourceTitleTextField.enabled = YES;
-        self.mediaTitleTextField.enabled = YES;
+        // TODO: show/hide the static cells in edit mode.
+        self.editableMediaTitleTextField.enabled = YES;
         self.abstractTextView.editable = YES;
         self.notesTextView.editable = YES;
+        self.detailsTextField.enabled = YES;
+        self.keywordsTextField.enabled = YES;
+        self.urlTextField.enabled = YES;
+        self.doiTextField.enabled = YES;
 
         for (NSInteger i=0; i<[self.detailItem authors].count; i++) {
             UITableViewCell *cell = [self.staticTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:AUTHORS_SECTION]];
@@ -93,13 +114,21 @@ static NSInteger const NOTES_SECTION = 3;
         self.navigationItem.leftBarButtonItem = nil;
 
         self.sourceTitleTextField.enabled = NO;
-        self.mediaTitleTextField.enabled = NO;
+        self.editableMediaTitleTextField.enabled = NO;
         self.abstractTextView.editable = NO;
         self.notesTextView.editable = NO;
+        self.detailsTextField.enabled = NO;
+        self.keywordsTextField.enabled = NO;
+        self.urlTextField.enabled = NO;
+        self.doiTextField.enabled = NO;
 
         Citation *citation = self.detailItem;
         citation.sourceTitle = self.sourceTitleTextField.text;
-        citation.mediaTitle = self.mediaTitleTextField.text;
+        citation.typeOfMedia = self.currentMediaType;
+        citation.mediaTitle = self.editableMediaTitleTextField.text;
+
+        self.readOnlyMediaTitleCell.textLabel.text = citation.typeOfMedia.type;
+        self.readOnlyMediaTitleCell.detailTextLabel.text = citation.mediaTitle;
 
         for (NSInteger i=0; i<[self.detailItem authors].count; i++) {
             UITableViewCell *cell = [self.staticTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:AUTHORS_SECTION]];
@@ -111,7 +140,11 @@ static NSInteger const NOTES_SECTION = 3;
 
         citation.abstract = self.abstractTextView.text;
         citation.notes = self.notesTextView.text;
-        
+        citation.details = self.detailsTextField.text;
+        citation.keywords = self.keywordsTextField.text;
+        citation.url = self.urlTextField.text;
+        citation.doi = self.doiTextField.text;
+
         [self.delegate updateCitation:self.detailItem];
     }
 
@@ -162,7 +195,7 @@ static NSInteger const NOTES_SECTION = 3;
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"asking for indentation level %d-%d", indexPath.section, indexPath.row);
+    NSLog(@"asking for indentation level %ld-%ld", (long)indexPath.section, (long)indexPath.row);
 
      if (indexPath.section == AUTHORS_SECTION) {
         return 0;
@@ -189,7 +222,7 @@ static NSInteger const NOTES_SECTION = 3;
     static NSString *AddCellIdentifier = @"Add Cell";
 
     if (indexPath.section == AUTHORS_SECTION) {
-        NSLog(@"Asking for cell for author %d", indexPath.row);
+        NSLog(@"Asking for cell for author %ld", (long)indexPath.row);
 
         // return text field cell for each author
         // if in edit mode create a label cell for add author
@@ -223,7 +256,7 @@ static NSInteger const NOTES_SECTION = 3;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == AUTHORS_SECTION) {
-        NSLog(@"committing style for row: %d", indexPath.row);
+        NSLog(@"committing style for row: %ld", (long)indexPath.row);
         Citation *citation = self.detailItem;
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             // remove the specified author from the array.

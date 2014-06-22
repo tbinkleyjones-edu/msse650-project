@@ -13,7 +13,7 @@
 
 @interface MediaType : NSManagedObject
 
-@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString *type;
 @property (nonatomic, retain) Citation *citations;
 
 @end
