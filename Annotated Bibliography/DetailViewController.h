@@ -16,6 +16,7 @@
 @property (weak) id <CitationOperationDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *staticTableView;
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *sourceTitleCell;
 @property (weak, nonatomic) IBOutlet UITextField *sourceTitleTextField;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *readOnlyMediaTitleCell;

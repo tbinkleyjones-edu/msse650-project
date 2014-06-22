@@ -79,7 +79,7 @@
         <scene sceneID="Cn3-H9-jdl">
             <objects>
                 <tableViewController title="Detail" id="Ah7-4n-0Wa" customClass="DetailViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6Fr-jS-Voy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6Fr-jS-Voy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,7 +141,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ksV-jk-eh2" detailTextLabel="OPm-u9-k1G" imageView="MDE-H3-wcI" style="IBUITableViewCellStyleSubtitle" id="6Xg-IW-cJQ">
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ksV-jk-eh2" detailTextLabel="OPm-u9-k1G" imageView="MDE-H3-wcI" style="IBUITableViewCellStyleSubtitle" id="6Xg-IW-cJQ">
                                         <rect key="frame" x="0.0" y="152" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Xg-IW-cJQ" id="oXj-Vp-10b">
@@ -172,7 +172,7 @@
                                             <segue destination="idU-Is-3ya" kind="modal" identifier="editMediaType" id="M2E-J0-PUU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uuv-bC-c5Z">
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uuv-bC-c5Z">
                                         <rect key="frame" x="0.0" y="196" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuv-bC-c5Z" id="Kdp-sG-5rw">
@@ -353,6 +353,7 @@
                         <outlet property="keywordsTextField" destination="6Nx-sx-YED" id="CxE-pn-3bh"/>
                         <outlet property="notesTextView" destination="TJH-Sb-PKH" id="8Ie-Ma-KcT"/>
                         <outlet property="readOnlyMediaTitleCell" destination="NGE-HA-pS0" id="aIN-lN-2uE"/>
+                        <outlet property="sourceTitleCell" destination="Md4-BV-msq" id="hFU-co-j3e"/>
                         <outlet property="sourceTitleTextField" destination="9kx-BL-dmw" id="oj2-gi-DuD"/>
                         <outlet property="staticTableView" destination="6Fr-jS-Voy" id="jXV-Pd-ka6"/>
                         <outlet property="typeOfMediaCell" destination="6Xg-IW-cJQ" id="99w-kP-IhX"/>

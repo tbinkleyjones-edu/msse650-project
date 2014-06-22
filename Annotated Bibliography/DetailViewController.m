@@ -12,7 +12,7 @@
 #import "MediaType.h"
 #import "MediaTypeTableViewController.h"
 
-//static NSInteger const TITLES_SECTION = 0;
+static NSInteger const TITLES_SECTION = 0;
 static NSInteger const AUTHORS_SECTION = 1;
 static NSInteger const ABSTRACT_SECTION = 2;
 static NSInteger const NOTES_SECTION = 3;
@@ -87,14 +87,22 @@ static NSInteger const NOTES_SECTION = 3;
         self.deleteButton.enabled = YES;
 
         self.sourceTitleTextField.enabled = YES;
-        // TODO: show/hide the static cells in edit mode.
+
+        self.readOnlyMediaTitleCell.hidden = YES;
+        self.typeOfMediaCell.hidden = NO;
+        self.editableMediaTitleCell.hidden = NO;
         self.editableMediaTitleTextField.enabled = YES;
+
         self.abstractTextView.editable = YES;
         self.notesTextView.editable = YES;
         self.detailsTextField.enabled = YES;
         self.keywordsTextField.enabled = YES;
         self.urlTextField.enabled = YES;
         self.doiTextField.enabled = YES;
+
+        self.readOnlyMediaTitleCell.hidden = YES;
+        self.typeOfMediaCell.hidden = NO;
+        self.editableMediaTitleCell.hidden = NO;
 
         for (NSInteger i=0; i<[self.detailItem authors].count; i++) {
             UITableViewCell *cell = [self.staticTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:AUTHORS_SECTION]];
@@ -115,7 +123,12 @@ static NSInteger const NOTES_SECTION = 3;
         self.navigationItem.leftBarButtonItem = nil;
 
         self.sourceTitleTextField.enabled = NO;
+
+        self.readOnlyMediaTitleCell.hidden = NO;
+        self.typeOfMediaCell.hidden = YES;
+        self.editableMediaTitleCell.hidden = YES;
         self.editableMediaTitleTextField.enabled = NO;
+
         self.abstractTextView.editable = NO;
         self.notesTextView.editable = NO;
         self.detailsTextField.enabled = NO;
@@ -174,6 +187,18 @@ static NSInteger const NOTES_SECTION = 3;
             result = 3 * tableView.rowHeight;
             break;
         }
+        case TITLES_SECTION:
+            result = tableView.rowHeight;
+            if (tableView.isEditing) {
+                if (indexPath.row == 1) {
+                    result = 0;
+                }
+            } else if (indexPath.row == 2 || indexPath.row == 3) {
+                result = 0;
+            }
+            NSLog(@"heightForRowAtIndexPath:%ld-%ld = %f",(long)indexPath.section, (long)indexPath.row, result);
+
+            break;
         default: {
             result = tableView.rowHeight;
         }
@@ -270,6 +295,10 @@ static NSInteger const NOTES_SECTION = 3;
             [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"did select row to %ld", indexPath.row);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
