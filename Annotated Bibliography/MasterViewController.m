@@ -7,10 +7,9 @@
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
-
 #import "CitationSvcCoreData.h"
+#import "DemoDataGenerator.h"
 
 @interface MasterViewController()
 
@@ -25,6 +24,7 @@ CitationSvcCoreData *citationService;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    [DemoDataGenerator execute];
     self.citationService = [[CitationSvcCoreData alloc] init];
 }
 

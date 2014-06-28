@@ -45,11 +45,11 @@ NSManagedObjectContext *moc = nil;
     // populate default media types if they do not already exist in the context
     NSArray *mediaTypes = [self retrieveAllMediaTypes];
     if (mediaTypes.count == 0) {
-        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Journal Article"];
         [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Book"];
         [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Conference Proceedings"];
-        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Thesis"];
+        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Journal Article"];
         [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Magazine Article"];
+        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Thesis"];
 
         NSError *error;
         if (![moc save:&error]) {

@@ -32,6 +32,7 @@
 		226E39F51956199400E4FCBE /* Citation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F41956199400E4FCBE /* Citation.m */; };
 		226E39F81956199400E4FCBE /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F71956199400E4FCBE /* Author.m */; };
 		229B0E651957577700C468C3 /* MediaTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B0E641957577700C468C3 /* MediaTypeTableViewController.m */; };
+		22A88707195F32FA006F2F57 /* DemoDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A88706195F32FA006F2F57 /* DemoDataGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		226E39F9195622D400E4FCBE /* CitationOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CitationOperationDelegate.h; path = ../CitationOperationDelegate.h; sourceTree = "<group>"; };
 		229B0E631957577700C468C3 /* MediaTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTypeTableViewController.h; sourceTree = "<group>"; };
 		229B0E641957577700C468C3 /* MediaTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTypeTableViewController.m; sourceTree = "<group>"; };
+		22A88705195F32FA006F2F57 /* DemoDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoDataGenerator.h; sourceTree = "<group>"; };
+		22A88706195F32FA006F2F57 /* DemoDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoDataGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +149,7 @@
 		221BD2AD19323D8600A1486D /* Annotated Bibliography */ = {
 			isa = PBXGroup;
 			children = (
-				221BD2ED1932A76D00A1486D /* image-1.png */,
+				22A88700195F1074006F2F57 /* Resources */,
 				221BD2DF1932413C00A1486D /* Model */,
 				221BD2B619323D8600A1486D /* AppDelegate.h */,
 				221BD2B719323D8600A1486D /* AppDelegate.m */,
@@ -207,6 +210,8 @@
 				226E39DF1955EAEE00E4FCBE /* CitationSvc.h */,
 				226E39E01955EB5E00E4FCBE /* CitationSvcCoreData.h */,
 				226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */,
+				22A88705195F32FA006F2F57 /* DemoDataGenerator.h */,
+				22A88706195F32FA006F2F57 /* DemoDataGenerator.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -217,6 +222,14 @@
 				226E39E31955EBE200E4FCBE /* CitationSvcCoreDataTests.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		22A88700195F1074006F2F57 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				221BD2ED1932A76D00A1486D /* image-1.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A88707195F32FA006F2F57 /* DemoDataGenerator.m in Sources */,
 				221BD2B819323D8600A1486D /* AppDelegate.m in Sources */,
 				226E39E21955EB5E00E4FCBE /* CitationSvcCoreData.m in Sources */,
 				226E39F81956199400E4FCBE /* Author.m in Sources */,

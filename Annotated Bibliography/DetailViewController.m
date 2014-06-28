@@ -59,7 +59,7 @@ static NSInteger const OTHER_SECTION = 4;
 
         self.detailsTextField.text = citation.details;
         self.keywordsTextField.text = citation.keywords;
-        self.urlTextField.text = citation.keywords;
+        self.urlTextField.text = citation.url;
         self.doiTextField.text = citation.doi;
     }
 }
