@@ -63,8 +63,7 @@
     MediaType *mediaType = [self.mediaTypes objectAtIndex:indexPath.row];
     cell.textLabel.text = mediaType.type;
 
-    //NSString *path = [[NSBundle mainBundle] pathForResource:@"image-1" ofType:@"png"];
-    UIImage *theImage = [UIImage imageNamed:@"image-1"];
+    UIImage *theImage = [UIImage imageNamed:mediaType.type];
 
     cell.imageView.image = theImage;
 

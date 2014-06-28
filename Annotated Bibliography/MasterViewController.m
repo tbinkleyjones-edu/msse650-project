@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "CitationSvcCoreData.h"
 #import "DemoDataGenerator.h"
+#import "MediaType.h"
 
 @interface MasterViewController()
 
@@ -67,8 +68,7 @@ CitationSvcCoreData *citationService;
         cell.detailTextLabel.text = @"";
     }
 
-    //NSString *path = [[NSBundle mainBundle] pathForResource:@"image-1" ofType:@"png"];
-    UIImage *theImage = [UIImage imageNamed:@"image-1"];
+    UIImage *theImage = [UIImage imageNamed:object.typeOfMedia.type];
 
     cell.imageView.image = theImage;
 

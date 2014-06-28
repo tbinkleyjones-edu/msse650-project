@@ -22,7 +22,6 @@
 		221BD2CC19323D8600A1486D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2AB19323D8600A1486D /* UIKit.framework */; };
 		221BD2D419323D8600A1486D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2D219323D8600A1486D /* InfoPlist.strings */; };
 		221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */; };
-		221BD2EE1932A76D00A1486D /* image-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2ED1932A76D00A1486D /* image-1.png */; };
 		2251B774194CB0880054854F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251B773194CB0880054854F /* libsqlite3.dylib */; };
 		226E39CF1955DA4B00E4FCBE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 226E39CD1955DA4B00E4FCBE /* Model.xcdatamodeld */; };
 		226E39E21955EB5E00E4FCBE /* CitationSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */; };
@@ -33,6 +32,11 @@
 		226E39F81956199400E4FCBE /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F71956199400E4FCBE /* Author.m */; };
 		229B0E651957577700C468C3 /* MediaTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B0E641957577700C468C3 /* MediaTypeTableViewController.m */; };
 		22A88707195F32FA006F2F57 /* DemoDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A88706195F32FA006F2F57 /* DemoDataGenerator.m */; };
+		22A8870D195F3C56006F2F57 /* Book.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A88708195F3C56006F2F57 /* Book.png */; };
+		22A8870E195F3C56006F2F57 /* Conference Proceedings.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A88709195F3C56006F2F57 /* Conference Proceedings.png */; };
+		22A8870F195F3C56006F2F57 /* Journal Article.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870A195F3C56006F2F57 /* Journal Article.png */; };
+		22A88710195F3C56006F2F57 /* Magazine Article.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870B195F3C56006F2F57 /* Magazine Article.png */; };
+		22A88711195F3C56006F2F57 /* Thesis.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870C195F3C56006F2F57 /* Thesis.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +71,6 @@
 		221BD2D119323D8600A1486D /* Annotated BibliographyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Annotated BibliographyTests-Info.plist"; sourceTree = "<group>"; };
 		221BD2D319323D8600A1486D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Annotated_BibliographyTests.m; sourceTree = "<group>"; };
-		221BD2ED1932A76D00A1486D /* image-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-1.png"; sourceTree = "<group>"; };
 		2251B773194CB0880054854F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		226E39CE1955DA4B00E4FCBE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		226E39DF1955EAEE00E4FCBE /* CitationSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitationSvc.h; sourceTree = "<group>"; };
@@ -86,6 +89,11 @@
 		229B0E641957577700C468C3 /* MediaTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTypeTableViewController.m; sourceTree = "<group>"; };
 		22A88705195F32FA006F2F57 /* DemoDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoDataGenerator.h; sourceTree = "<group>"; };
 		22A88706195F32FA006F2F57 /* DemoDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoDataGenerator.m; sourceTree = "<group>"; };
+		22A88708195F3C56006F2F57 /* Book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book.png; sourceTree = "<group>"; };
+		22A88709195F3C56006F2F57 /* Conference Proceedings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Conference Proceedings.png"; sourceTree = "<group>"; };
+		22A8870A195F3C56006F2F57 /* Journal Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Journal Article.png"; sourceTree = "<group>"; };
+		22A8870B195F3C56006F2F57 /* Magazine Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Magazine Article.png"; sourceTree = "<group>"; };
+		22A8870C195F3C56006F2F57 /* Thesis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thesis.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +235,11 @@
 		22A88700195F1074006F2F57 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				221BD2ED1932A76D00A1486D /* image-1.png */,
+				22A88708195F3C56006F2F57 /* Book.png */,
+				22A88709195F3C56006F2F57 /* Conference Proceedings.png */,
+				22A8870A195F3C56006F2F57 /* Journal Article.png */,
+				22A8870B195F3C56006F2F57 /* Magazine Article.png */,
+				22A8870C195F3C56006F2F57 /* Thesis.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -310,8 +322,12 @@
 			files = (
 				221BD2C319323D8600A1486D /* Images.xcassets in Resources */,
 				221BD2B219323D8600A1486D /* InfoPlist.strings in Resources */,
+				22A8870E195F3C56006F2F57 /* Conference Proceedings.png in Resources */,
+				22A8870D195F3C56006F2F57 /* Book.png in Resources */,
+				22A88711195F3C56006F2F57 /* Thesis.png in Resources */,
+				22A8870F195F3C56006F2F57 /* Journal Article.png in Resources */,
 				221BD2BB19323D8600A1486D /* Main.storyboard in Resources */,
-				221BD2EE1932A76D00A1486D /* image-1.png in Resources */,
+				22A88710195F3C56006F2F57 /* Magazine Article.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
