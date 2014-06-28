@@ -10,6 +10,6 @@
 #import "CitationOperationDelegate.h"
 
 
-@interface MasterViewController : UITableViewController <CitationOperationDelegate>
+@interface MasterViewController : UITableViewController <CitationOperationDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
 @end

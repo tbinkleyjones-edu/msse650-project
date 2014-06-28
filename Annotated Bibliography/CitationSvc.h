@@ -20,6 +20,9 @@
 - (void) commitChanges;
 
 - (NSArray *) retrieveAllCitations;
+- (NSArray *) retrieveAllCitationsMatchingTitle: (NSString *)title;
+- (NSArray *) retrieveAllCitationsMatchingAuthor: (NSString *)author;
+
 - (NSArray *) retrieveAllMediaTypes;
 
 @end
