@@ -21,9 +21,6 @@
 
 @implementation MasterViewController
 
-//CitationSvcCoreData *citationService;
-
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];

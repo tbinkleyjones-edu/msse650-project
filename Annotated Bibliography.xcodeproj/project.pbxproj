@@ -37,6 +37,7 @@
 		22A8870F195F3C56006F2F57 /* Journal Article.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870A195F3C56006F2F57 /* Journal Article.png */; };
 		22A88710195F3C56006F2F57 /* Magazine Article.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870B195F3C56006F2F57 /* Magazine Article.png */; };
 		22A88711195F3C56006F2F57 /* Thesis.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870C195F3C56006F2F57 /* Thesis.png */; };
+		22A88716195F54C3006F2F57 /* MasterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A88715195F54C3006F2F57 /* MasterViewControllerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		22A8870A195F3C56006F2F57 /* Journal Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Journal Article.png"; sourceTree = "<group>"; };
 		22A8870B195F3C56006F2F57 /* Magazine Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Magazine Article.png"; sourceTree = "<group>"; };
 		22A8870C195F3C56006F2F57 /* Thesis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thesis.png; sourceTree = "<group>"; };
+		22A88715195F54C3006F2F57 /* MasterViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				221BD2E71932499100A1486D /* Model */,
 				221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */,
 				221BD2D019323D8600A1486D /* Supporting Files */,
+				22A88715195F54C3006F2F57 /* MasterViewControllerTests.m */,
 			);
 			path = "Annotated BibliographyTests";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226E39E41955EBE200E4FCBE /* CitationSvcCoreDataTests.m in Sources */,
+				22A88716195F54C3006F2F57 /* MasterViewControllerTests.m in Sources */,
 				221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
