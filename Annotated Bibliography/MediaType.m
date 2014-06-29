@@ -2,7 +2,7 @@
 //  MediaType.m
 //  Annotated Bibliography
 //
-//  Created by Tim Binkley-Jones on 6/21/14.
+//  Created by Tim Binkley-Jones on 6/29/14.
 //  Copyright (c) 2014 msse650. All rights reserved.
 //
 

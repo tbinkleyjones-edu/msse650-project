@@ -18,11 +18,11 @@
     </entity>
     <entity name="MediaType" representedClassName="MediaType" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="citations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Citation" inverseName="typeOfMedia" inverseEntity="Citation" syncable="YES"/>
+        <relationship name="citations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Citation" inverseName="typeOfMedia" inverseEntity="Citation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Citation" positionX="-281" positionY="-288" width="128" height="193"/>
         <element name="Author" positionX="-20" positionY="5" width="128" height="73"/>
+        <element name="Citation" positionX="-281" positionY="-288" width="128" height="193"/>
         <element name="MediaType" positionX="-189" positionY="-49" width="128" height="73"/>
     </elements>
 </model>
