@@ -7,24 +7,24 @@
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
-
 #import "CitationSvcCoreData.h"
+#import "DemoDataGenerator.h"
+#import "MediaType.h"
 
 @interface MasterViewController()
 
 @property (strong, nonatomic) CitationSvcCoreData *citationService;
+@property (strong, nonatomic) NSArray *filteredList;
 
 @end
 
 @implementation MasterViewController
 
-CitationSvcCoreData *citationService;
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    [DemoDataGenerator execute];
     self.citationService = [[CitationSvcCoreData alloc] init];
 }
 
@@ -51,14 +51,28 @@ CitationSvcCoreData *citationService;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.citationService retrieveAllCitations].count;
+    if (tableView == self.tableView)
+    {
+        return [self.citationService retrieveAllCitations].count;
+    }
+    else
+    {
+        return [self.filteredList count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitationCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CitationCell" forIndexPath:indexPath];
 
-    Citation *object = [[self.citationService retrieveAllCitations] objectAtIndex:indexPath.row];
+    Citation *object = nil;
+    if (tableView == self.tableView)
+    {
+        object = [[self.citationService retrieveAllCitations] objectAtIndex:indexPath.row];
+    } else {
+        object = [self.filteredList objectAtIndex:indexPath.row];
+    }
+
     cell.textLabel.text = [object sourceTitle];
     if (object.authors.count > 0) {
         Author *author = [object.authors objectAtIndex:0];
@@ -67,8 +81,7 @@ CitationSvcCoreData *citationService;
         cell.detailTextLabel.text = @"";
     }
 
-    //NSString *path = [[NSBundle mainBundle] pathForResource:@"image-1" ofType:@"png"];
-    UIImage *theImage = [UIImage imageNamed:@"image-1"];
+    UIImage *theImage = [UIImage imageNamed:object.typeOfMedia.type];
 
     cell.imageView.image = theImage;
 
@@ -149,5 +162,29 @@ CitationSvcCoreData *citationService;
     [self.citationService commitChanges];
     [self.tableView reloadData];
 }
+
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    NSInteger searchOption = controller.searchBar.selectedScopeButtonIndex;
+    if (searchOption == 0) {
+        self.filteredList = [self.citationService retrieveAllCitationsMatchingTitle:searchString];
+    } else {
+        self.filteredList = [self.citationService retrieveAllCitationsMatchingAuthor:searchString];
+    }
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    NSString *searchString = controller.searchBar.text;
+    if (searchOption == 0) {
+        self.filteredList = [self.citationService retrieveAllCitationsMatchingTitle:searchString];
+    } else {
+        self.filteredList = [self.citationService retrieveAllCitationsMatchingAuthor:searchString];
+    }
+    return YES;
+}
+
 
 @end

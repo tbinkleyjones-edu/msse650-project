@@ -22,16 +22,23 @@
 		221BD2CC19323D8600A1486D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221BD2AB19323D8600A1486D /* UIKit.framework */; };
 		221BD2D419323D8600A1486D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2D219323D8600A1486D /* InfoPlist.strings */; };
 		221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */; };
-		221BD2EE1932A76D00A1486D /* image-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BD2ED1932A76D00A1486D /* image-1.png */; };
 		2251B774194CB0880054854F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251B773194CB0880054854F /* libsqlite3.dylib */; };
 		226E39CF1955DA4B00E4FCBE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 226E39CD1955DA4B00E4FCBE /* Model.xcdatamodeld */; };
 		226E39E21955EB5E00E4FCBE /* CitationSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */; };
 		226E39E41955EBE200E4FCBE /* CitationSvcCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39E31955EBE200E4FCBE /* CitationSvcCoreDataTests.m */; };
 		226E39E61955F11E00E4FCBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226E39E51955F11E00E4FCBE /* CoreData.framework */; };
-		226E39F21956199300E4FCBE /* MediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F11956199300E4FCBE /* MediaType.m */; };
 		226E39F51956199400E4FCBE /* Citation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F41956199400E4FCBE /* Citation.m */; };
 		226E39F81956199400E4FCBE /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E39F71956199400E4FCBE /* Author.m */; };
+		2283ADB0195F671900D2CC31 /* DetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2283ADAF195F671900D2CC31 /* DetailViewControllerTests.m */; };
 		229B0E651957577700C468C3 /* MediaTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B0E641957577700C468C3 /* MediaTypeTableViewController.m */; };
+		22A88707195F32FA006F2F57 /* DemoDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A88706195F32FA006F2F57 /* DemoDataGenerator.m */; };
+		22A8870D195F3C56006F2F57 /* Book.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A88708195F3C56006F2F57 /* Book.png */; };
+		22A8870E195F3C56006F2F57 /* Conference Proceedings.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A88709195F3C56006F2F57 /* Conference Proceedings.png */; };
+		22A8870F195F3C56006F2F57 /* Journal Article.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870A195F3C56006F2F57 /* Journal Article.png */; };
+		22A88710195F3C56006F2F57 /* Magazine Article.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870B195F3C56006F2F57 /* Magazine Article.png */; };
+		22A88711195F3C56006F2F57 /* Thesis.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A8870C195F3C56006F2F57 /* Thesis.png */; };
+		22A88716195F54C3006F2F57 /* MasterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A88715195F54C3006F2F57 /* MasterViewControllerTests.m */; };
+		22ED581B1960872F0000D92C /* MediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ED581A1960872F0000D92C /* MediaType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +73,6 @@
 		221BD2D119323D8600A1486D /* Annotated BibliographyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Annotated BibliographyTests-Info.plist"; sourceTree = "<group>"; };
 		221BD2D319323D8600A1486D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Annotated_BibliographyTests.m; sourceTree = "<group>"; };
-		221BD2ED1932A76D00A1486D /* image-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-1.png"; sourceTree = "<group>"; };
 		2251B773194CB0880054854F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		226E39CE1955DA4B00E4FCBE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		226E39DF1955EAEE00E4FCBE /* CitationSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitationSvc.h; sourceTree = "<group>"; };
@@ -74,15 +80,24 @@
 		226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitationSvcCoreData.m; sourceTree = "<group>"; };
 		226E39E31955EBE200E4FCBE /* CitationSvcCoreDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitationSvcCoreDataTests.m; path = "../Annotated Bibliography/CitationSvcCoreDataTests.m"; sourceTree = "<group>"; };
 		226E39E51955F11E00E4FCBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		226E39F01956199300E4FCBE /* MediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaType.h; sourceTree = "<group>"; };
-		226E39F11956199300E4FCBE /* MediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaType.m; sourceTree = "<group>"; };
 		226E39F31956199400E4FCBE /* Citation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Citation.h; sourceTree = "<group>"; };
 		226E39F41956199400E4FCBE /* Citation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Citation.m; sourceTree = "<group>"; };
 		226E39F61956199400E4FCBE /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		226E39F71956199400E4FCBE /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
 		226E39F9195622D400E4FCBE /* CitationOperationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CitationOperationDelegate.h; path = ../CitationOperationDelegate.h; sourceTree = "<group>"; };
+		2283ADAF195F671900D2CC31 /* DetailViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewControllerTests.m; sourceTree = "<group>"; };
 		229B0E631957577700C468C3 /* MediaTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTypeTableViewController.h; sourceTree = "<group>"; };
 		229B0E641957577700C468C3 /* MediaTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTypeTableViewController.m; sourceTree = "<group>"; };
+		22A88705195F32FA006F2F57 /* DemoDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoDataGenerator.h; sourceTree = "<group>"; };
+		22A88706195F32FA006F2F57 /* DemoDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoDataGenerator.m; sourceTree = "<group>"; };
+		22A88708195F3C56006F2F57 /* Book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book.png; sourceTree = "<group>"; };
+		22A88709195F3C56006F2F57 /* Conference Proceedings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Conference Proceedings.png"; sourceTree = "<group>"; };
+		22A8870A195F3C56006F2F57 /* Journal Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Journal Article.png"; sourceTree = "<group>"; };
+		22A8870B195F3C56006F2F57 /* Magazine Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Magazine Article.png"; sourceTree = "<group>"; };
+		22A8870C195F3C56006F2F57 /* Thesis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thesis.png; sourceTree = "<group>"; };
+		22A88715195F54C3006F2F57 /* MasterViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewControllerTests.m; sourceTree = "<group>"; };
+		22ED58191960872F0000D92C /* MediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaType.h; sourceTree = "<group>"; };
+		22ED581A1960872F0000D92C /* MediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaType.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +161,7 @@
 		221BD2AD19323D8600A1486D /* Annotated Bibliography */ = {
 			isa = PBXGroup;
 			children = (
-				221BD2ED1932A76D00A1486D /* image-1.png */,
+				22A88700195F1074006F2F57 /* Resources */,
 				221BD2DF1932413C00A1486D /* Model */,
 				221BD2B619323D8600A1486D /* AppDelegate.h */,
 				221BD2B719323D8600A1486D /* AppDelegate.m */,
@@ -180,6 +195,8 @@
 			children = (
 				221BD2E71932499100A1486D /* Model */,
 				221BD2D519323D8600A1486D /* Annotated_BibliographyTests.m */,
+				22A88715195F54C3006F2F57 /* MasterViewControllerTests.m */,
+				2283ADAF195F671900D2CC31 /* DetailViewControllerTests.m */,
 				221BD2D019323D8600A1486D /* Supporting Files */,
 			);
 			path = "Annotated BibliographyTests";
@@ -202,11 +219,13 @@
 				226E39F71956199400E4FCBE /* Author.m */,
 				226E39F31956199400E4FCBE /* Citation.h */,
 				226E39F41956199400E4FCBE /* Citation.m */,
-				226E39F01956199300E4FCBE /* MediaType.h */,
-				226E39F11956199300E4FCBE /* MediaType.m */,
 				226E39DF1955EAEE00E4FCBE /* CitationSvc.h */,
 				226E39E01955EB5E00E4FCBE /* CitationSvcCoreData.h */,
 				226E39E11955EB5E00E4FCBE /* CitationSvcCoreData.m */,
+				22A88705195F32FA006F2F57 /* DemoDataGenerator.h */,
+				22A88706195F32FA006F2F57 /* DemoDataGenerator.m */,
+				22ED58191960872F0000D92C /* MediaType.h */,
+				22ED581A1960872F0000D92C /* MediaType.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -217,6 +236,18 @@
 				226E39E31955EBE200E4FCBE /* CitationSvcCoreDataTests.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		22A88700195F1074006F2F57 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22A88708195F3C56006F2F57 /* Book.png */,
+				22A88709195F3C56006F2F57 /* Conference Proceedings.png */,
+				22A8870A195F3C56006F2F57 /* Journal Article.png */,
+				22A8870B195F3C56006F2F57 /* Magazine Article.png */,
+				22A8870C195F3C56006F2F57 /* Thesis.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,8 +328,12 @@
 			files = (
 				221BD2C319323D8600A1486D /* Images.xcassets in Resources */,
 				221BD2B219323D8600A1486D /* InfoPlist.strings in Resources */,
+				22A8870E195F3C56006F2F57 /* Conference Proceedings.png in Resources */,
+				22A8870D195F3C56006F2F57 /* Book.png in Resources */,
+				22A88711195F3C56006F2F57 /* Thesis.png in Resources */,
+				22A8870F195F3C56006F2F57 /* Journal Article.png in Resources */,
 				221BD2BB19323D8600A1486D /* Main.storyboard in Resources */,
-				221BD2EE1932A76D00A1486D /* image-1.png in Resources */,
+				22A88710195F3C56006F2F57 /* Magazine Article.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,16 +352,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A88707195F32FA006F2F57 /* DemoDataGenerator.m in Sources */,
 				221BD2B819323D8600A1486D /* AppDelegate.m in Sources */,
 				226E39E21955EB5E00E4FCBE /* CitationSvcCoreData.m in Sources */,
 				226E39F81956199400E4FCBE /* Author.m in Sources */,
 				226E39F51956199400E4FCBE /* Citation.m in Sources */,
 				221BD2BE19323D8600A1486D /* MasterViewController.m in Sources */,
 				221BD2B419323D8600A1486D /* main.m in Sources */,
+				22ED581B1960872F0000D92C /* MediaType.m in Sources */,
 				226E39CF1955DA4B00E4FCBE /* Model.xcdatamodeld in Sources */,
 				229B0E651957577700C468C3 /* MediaTypeTableViewController.m in Sources */,
 				221BD2C119323D8600A1486D /* DetailViewController.m in Sources */,
-				226E39F21956199300E4FCBE /* MediaType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +371,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				226E39E41955EBE200E4FCBE /* CitationSvcCoreDataTests.m in Sources */,
+				22A88716195F54C3006F2F57 /* MasterViewControllerTests.m in Sources */,
 				221BD2D619323D8600A1486D /* Annotated_BibliographyTests.m in Sources */,
+				2283ADB0195F671900D2CC31 /* DetailViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,11 +45,11 @@ NSManagedObjectContext *moc = nil;
     // populate default media types if they do not already exist in the context
     NSArray *mediaTypes = [self retrieveAllMediaTypes];
     if (mediaTypes.count == 0) {
-        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Journal Article"];
         [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Book"];
         [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Conference Proceedings"];
-        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Thesis"];
+        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Journal Article"];
         [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Magazine Article"];
+        [[NSEntityDescription insertNewObjectForEntityForName:@"MediaType" inManagedObjectContext:moc] setType:@"Thesis"];
 
         NSError *error;
         if (![moc save:&error]) {
@@ -92,6 +92,43 @@ NSManagedObjectContext *moc = nil;
     NSError *error;
     NSArray *fetchedObjects = [moc executeFetchRequest:fetchRequest error:&error];
     return fetchedObjects;
+}
+
+- (NSArray *) retrieveAllCitationsMatchingTitle: (NSString *)title {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Citation" inManagedObjectContext:moc];
+    [fetchRequest setEntity:entity];
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sourceTitle" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sourceTitle CONTAINS[cd] %@", title];
+    [fetchRequest setPredicate:predicate];
+
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error];
+
+    return results;
+}
+
+- (NSArray *) retrieveAllCitationsMatchingAuthor: (NSString *)author {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Citation" inManagedObjectContext:moc];
+    [fetchRequest setEntity:entity];
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sourceTitle" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY authors.name CONTAINS[cd] %@", author];
+    [fetchRequest setPredicate:predicate];
+
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error];
+
+    return results;
+
 }
 
 - (NSArray *) retrieveAllMediaTypes {

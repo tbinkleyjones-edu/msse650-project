@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 
 #import "CitationSvcCoreData.h"
+#import "DemoDataGenerator.h"
 
 @interface CitationSvcCoreDataTests : XCTestCase
 
@@ -95,7 +96,30 @@
     citation = nil;
     service = [[CitationSvcCoreData alloc] init];
     XCTAssertEqual([service retrieveAllCitations].count, 0);
+}
 
+- (void)testMatchTitle {
+    // add a few citations to enable searching.
+    [DemoDataGenerator execute];
+
+    CitationSvcCoreData *service = [[CitationSvcCoreData alloc] init];
+    XCTAssertNotEqual([service retrieveAllCitations].count, 0);
+
+    NSArray *results = [service retrieveAllCitationsMatchingTitle:@"Service"];
+
+    XCTAssertEqual(results.count, 1);
+}
+
+- (void)testMatchAuthor {
+    // add a few citations to enable searching.
+    [DemoDataGenerator execute];
+
+    CitationSvcCoreData *service = [[CitationSvcCoreData alloc] init];
+    XCTAssertNotEqual([service retrieveAllCitations].count, 0);
+
+    NSArray *results = [service retrieveAllCitationsMatchingAuthor:@"Binkley"];
+
+    XCTAssertEqual(results.count, 1);
 }
 
 @end
